@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untangling Data Complexity: Custom Oxygen Frameworks for Edition Projects</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- style.css (pre-existing, not generated here) -->
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width: 50px; height: auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Main Article Column -->
+      <div class="col-md-8">
+        <!-- Title Section -->
+        <section class="mb-4">
+          <h2 class="h2">Untangling Data Complexity: Custom Oxygen Frameworks for Edition Projects</h2>
+          <p class="text-muted">
+             Institut für Dokumentologie und Editorik e.V., December 2024 (http://ride.i-d-e.de/issues/issue-19/oxygen-framework)
+          </p>
+          <hr>
+        </section>
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-4">
+          <h3 class="h5">Abstract</h3>
+          <p>Consistency and coherence in annotated and enriched data are vital to the success of
+               any digital edition project. Custom frameworks within the oXygen XML Editor provide a
+               user-friendly approach for editors to interact directly with XML data, thus lowering
+               entry barriers and ensuring consistency across datasets. Drawing on our experiences as customisers, this review explores the benefits and
+               limitations of these custom frameworks, highlighting their potential for
+               interdisciplinary teams with varying levels of XML expertise. We critically examine
+               the technical requirements for creating and maintaining custom frameworks, as well as
+               the current state of documentation. We also discuss challenges that users may face
+               with oXygen’s complex interface. Once implemented, frameworks facilitate uniform data
+               input, allow for the automation of repetitive annotation tasks, and integrate
+               seamlessly with project workflows, thereby enabling users to focus on annotation
+               tasks in an environment tailored to the specific needs of each project. In our 
+               opinion, despite being underutilised and insufficiently promoted within the
+               oXygen platform, custom frameworks offer extensive functionalities that meet the
+               needs of a wide variety of edition projects.</p>
+
+        </section>
+
+        <!-- Body Content -->
+        <section id="div1">
+  <h3 class="h5">The Reviewer</h3>
+<p>Dr Jennifer Bunselmeier is a Digital Humanities research assistant in the
+               digital edition projects ‘Rhodomanologia’ (classical philology) and ‘Niklas
+               Luhmann-Archiv’ (sociology) at the University of Wuppertal. Her expertise lies in
+               data modelling, data curation, frontend design, and workflow management. She has been
+               developing and maintaining custom oXygen frameworks for five years.</p>
+<p>Sina Krottmaier is a research assistant in the project ‘History as a
+               Visual Concept Peter of Poitiers’ Compendium historiae’ at the Department of Digital
+               Humanities at the University of Graz. In this project, she is currently developing
+               and maintaining a custom oXygen framework to simplify and streamline the process of
+               collecting metadata for users.</p>
+</section>
+
+<section id="div2">
+  <h3 class="h5">Introduction</h3>
+<p>Consistency and coherence of annotated and enriched data are crucial for
+               successful edition projects. To extract necessary information from the data, it must
+               be encoded in accordance with established standards. However, when dealing with large
+               amounts of data, this can be a challenging task, particularly when an
+               interdisciplinary project team with varying levels of editorial and XML expertise is
+               involved. In some cases, ensuring uniformity and consistency of data can pose a
+               significant challenge in a project.</p>
+<p>This review examines a very powerful, yet regrettably ‘hidden tool’ in
+               the oXygen XML Editor (see <a href="#syncro2024m" target="_blank">SyncRo Soft
+                  2002–2024m</a>): custom oXygen frameworks. First, we will provide a brief
+               overview of the tool’s advantages and disadvantages. Then the technical aspects,
+               particularly the installation process, necessary conceptual steps and the tool’s GUI,
+               documentation, and learnability will be discussed, including an overview of relevant
+               functionalities and the relevant terminology. Finally, we summarise the tool’s
+               strengths and weaknesses and evaluate its usefulness for digital edition
+               projects.</p>
+</section>
+
+<section id="div3">
+  <h3 class="h5">Identification of the Tool</h3>
+<p>Custom oXygen frameworks (hereafter referred to as
+               <em>framework</em>) are an integrated feature of the oXygen XML Editor (hereafter
+               referred to as <em>oXygen</em>). The proprietary editor, which has been
+               continuously developed and maintained by SyncRo Soft SRL since 2002, specialises in
+               XML-heavy authoring, developing and annotating tasks. It is widely used not only in
+               the private sector (see <a href="#syncro2024g" target="_blank">ibid.
+                  2002–2024g</a>), but also in the Digital Humanities community. Due to the
+               proprietary nature of oXygen (see <a href="#syncro2024g" target="_blank">ibid.</a>), the creation and especially the use of frameworks is only possible
+               once the software has been purchased by all users, meaning that functionality depends
+               on possessing a valid oXygen software license<span class="note">[While the licenses
+                  for the private sector are rather expensive, SyncRo Soft SRL accommodates the
+                  academic sector with relatively inexpensive academic licenses (see SyncRo Soft SRL
+               2002–2024l).]</span>.</p>
+<p>There are two types of frameworks integrated into oXygen: predefined
+               frameworks for various XML specifications (e.g. TEI<span class="note">[For more
+                  information on the TEI Standard, see TEI
+                     Consortium n.d.]</span> or DITA<span class="note">[For more information
+                  on the DITA Standard, see OASIS Open
+                     2018.]</span>), and custom frameworks, which are created from scratch for
+               specific requirements. The integration of the custom frameworks option can be traced back at least to version 13.2 of oXygen, published in 2012.
+               Since then, the functionality has continuously evolved, with the latest
+               changes introduced in Version 25.1 in 2023 (see <a href="#syncro2023" target="_blank">SyncRo Soft SRL 2023</a>).</p>
+<p>This review concentrates on the second type – the option to construct
+               frameworks from scratch. It assesses the effort required from the perspective of a
+               user-developer (hereafter <em>customiser</em>). However, to comprehensively
+               address this, it is essential to also evaluate the tool’s output – the crafted
+               framework – as perceived by the <em>user</em><span class="note">[To avoid
+                  confusion, the term ‘user’ will be employed when discussing the person engaged in
+                  the editing process, as distinct from the term ‘editor’, which refers to the
+                  oXygen XML Editor programme.]</span>. The review will use the term
+                  <em>tool</em> to refer to the features for creating a framework, while also
+               considering the created framework as a tool to facilitate XML annotation.</p>
+<p>Furthermore, it is important to note, that working with oXygen frameworks
+               not automatically means working with ediarum (see <a href="#telota2024a" target="_blank">Berlin-Brandenburgische Akademie der Wissenschaften, and
+                  TELOTA - IT/DH 2024a</a>; <a href="#dumontetal2021" target="_blank">Dumont
+                  et al. 2021</a>). Ediarum is an environment that enables collaborative working
+               and publishing of edition projects. The environment consists of multiple software
+               components, one of which specifically utilises the framework tool of oXygen and
+               expands it by adding additional functionalities. It also incorporates a database
+                  (eXist-db<span class="note">[For more information on eXist-db, see eXist Solutions 2018.]</span>) which,
+               when set up on a server, enables collaborative working on and publishing of edition
+               projects. Alternatively, it is possible to include the ediarum.jar in an existing
+               framework to add additional java operations. (<a href="#telota2024b" target="_blank">Berlin-Brandenburgische Akademie der Wissenschaften, and
+                  TELOTA - IT/DH 2024b</a>; <a href="#telota2024b" target="_blank">ibid.
+                  2024c</a>; <a href="#fechner2023" target="_blank">Fechner 2023</a>)</p>
+<p>So, while ediarum can be broadly described as a large-scale working
+               environment, frameworks are a feature in the oXygen editor itself. Therefore, oXygen
+               frameworks are not the same as ediarum, but ediarum utilises the oXygen framework
+               functionality and incorporates it into its working environment. Since creating custom
+               oXygen frameworks is entirely sufficient for our project work, our review will focus
+               specifically on this aspect: the creation and usefulness of custom oXygen frameworks
+               for edition projects.<span class="note">[A detailed review of ediarum can be found
+                  in RIDE Issue 11 (see Mertgens
+                     2019), for anyone interested in a working and publishing environment for
+                  their project.]</span></p>
+</section>
+
+<section id="div4">
+  <h3 class="h5">Technical Aspects</h3>
+<p>This section focuses on the technical aspects of installing and using
+               the tool.</p>
+</section>
+
+<section id="div5">
+  <h3 class="h5">Creating a Framework</h3>
+<p>This section focuses on the process of creating a framework and
+               highlights its most important components. This includes technical and conceptual
+               prerequisites, an evaluation of the tool’s graphical user interface (GUI) and
+               documentation, and examples showcasing core features and functionalities.</p>
+</section>
+
+<section id="div6">
+  <h3 class="h5">Conclusion</h3>
+<p>Custom oXygen frameworks are a powerful tool to enable users with little
+               or no knowledge of XML to engage directly with XML files, thereby lowering the
+               barrier for non-technical personnel to work in digital edition projects. Creating and maintaining frameworks requires a certain level of
+               technical knowledge from the customiser, including proficiency in CSS, schema
+               languages, XPath, and XSL. For users of a framework, a significant challenge may
+               arise from the complexity of the oXygen XML Editor itself, as it can initially feel
+               overwhelming with its numerous features and functionalities. However, once the hurdle
+               of setting up and familiarising oneself with oXygen are overcome, the benefits of
+               using frameworks in projects become clear. They significantly reduce the need for
+               specialised technical and digital annotation knowledge by visually replicating
+               familiar systems (e.g., designing the framework as a form or making it resemble known
+               text editors like Word). This allows users to focus on their annotation work in a
+               familiar environment while producing high-quality data.</p>
+<p>Frameworks integrate well into existing project workflows and processes,
+               as diverse techniques and project materials can be seamlessly and flexibly combined
+               to create a comprehensive working environment that encompasses content creation,
+               validation, and documentation. Data quality is reliably ensured, as the data inserted
+               through the framework is uniform, and illegitimate or missing content can be
+               highlighted and easily spotted by users. The built-in actions and functions meet the
+               majority of editing requirements and can even be expanded and customised when
+               necessary.</p>
+<p>Regrettably, the custom frameworks tool is not prominently featured in
+               the oXygen environment, and its potential is not effectively communicated. A more
+               user-friendly documentation and more real-world examples from other users and
+               customisers would significantly improve visibility and accessibility.</p>
+<p>While the term ‘framework’ is often used interchangeably with ‘ediarum’,
+               it is crucial to recognise that they are not synonymous. Ediarum is a large-scale
+               working environment that relies on oXygen frameworks, whereas using the oXygen custom
+               framework tool directly to create project specific frameworks is a highly effective
+               and less technically demanding solution. The broad range of functionalities and
+               options available cover all of our projects’ use cases. Even knowing or using only a
+               basic set of the tool’s features, some of which were explored in this paper, is still
+               sufficient to meet the tailored needs of most edition projects.</p>
+<p>To conclude, in our project experience, both the customisers and the
+               users consider oXygen frameworks to be an effective, recommendable tool that
+               significantly improves the editing workflow.</p>
+</section>
+
+<figure id="img1" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-1.png" alt="Initial folder structure of a framework." class="img-fluid"/>
+  <figcaption>Initial folder structure of a framework.</figcaption>
+</figure>
+<figure id="img2" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-2.png" alt="Referencing of the framework in the Document Type
+                        Association tab." class="img-fluid"/>
+  <figcaption>Referencing of the framework in the Document Type
+                        Association tab.</figcaption>
+</figure>
+<figure id="img3" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-3.png" alt="Association rules of a framework." class="img-fluid"/>
+  <figcaption>Association rules of a framework.</figcaption>
+</figure>
+<figure id="img4" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-4.png" alt="Framework folder structure after all configurations." class="img-fluid"/>
+  <figcaption>Framework folder structure after all configurations.</figcaption>
+</figure>
+<figure id="img5" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-5.png" alt="Action configuration options in the framework options
+                     dialogue box." class="img-fluid"/>
+  <figcaption>Action configuration options in the framework options
+                     dialogue box.</figcaption>
+</figure>
+<figure id="img6" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-6.png" alt="Options to create a custom" class="img-fluid"/>
+  <figcaption>Options to create a custom</figcaption>
+</figure>
+<figure id="img7" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-7.png" alt="Example of a framework’s custom toolbar and menu with
+                        individual icons and descriptions." class="img-fluid"/>
+  <figcaption>Example of a framework’s custom toolbar and menu with
+                        individual icons and descriptions.</figcaption>
+</figure>
+<figure id="img8" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-8.png" alt="XML fragment inserted via an input field in the dialogue
+                     box." class="img-fluid"/>
+  <figcaption>XML fragment inserted via an input field in the dialogue
+                     box.</figcaption>
+</figure>
+<figure id="img9" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-9.png" alt="XML fragment inserted directly into the framework file’s
+                        source code." class="img-fluid"/>
+  <figcaption>XML fragment inserted directly into the framework file’s
+                        source code.</figcaption>
+</figure>
+<figure id="img10" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-10.png" alt="Action dialogue box with form-like design." class="img-fluid"/>
+  <figcaption>Action dialogue box with form-like design.</figcaption>
+</figure>
+<figure id="img11" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-11.png" alt="Example of an XML file rendered as form fields for users to
+                     fill in (here bibliographic metadata)." class="img-fluid"/>
+  <figcaption>Example of an XML file rendered as form fields for users to
+                     fill in (here bibliographic metadata).</figcaption>
+</figure>
+<figure id="img12" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-12.png" alt="Three versions for date insertion: calendar, automatic
+                     insertion of current date, and text input field." class="img-fluid"/>
+  <figcaption>Three versions for date insertion: calendar, automatic
+                     insertion of current date, and text input field.</figcaption>
+</figure>
+<figure id="img13" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-13.png" alt="Example of using the" class="img-fluid"/>
+  <figcaption>Example of using the</figcaption>
+</figure>
+<figure id="img14" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-14.png" alt="CSS code using" class="img-fluid"/>
+  <figcaption>CSS code using</figcaption>
+</figure>
+<figure id="img15" class="mb-4">
+  <img src="../../data/issue19/oxygen-framework/pictures/picture-15.png" alt="CSS code using" class="img-fluid"/>
+  <figcaption>CSS code using</figcaption>
+</figure>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-4">
+        <section class="mb-4">
+          <h4 class="h6">Meta</h4>
+          <ul class="list-unstyled">
+            <li><strong>Published:</strong> December 2024</li>
+            <li><strong>Publisher:</strong> Institut für Dokumentologie und Editorik e.V.</li>
+          </ul>
+        </section>
+
+        <section class="mb-4">
+          <h4 class="h6">Tags</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary">18th century</span>
+            <span class="badge bg-secondary">Account books</span>
+            <span class="badge bg-secondary">Digital edition</span>
+          </div>
+        </section>
+
+        <section>
+          <h4 class="h6">TOC</h4>
+          <ul class="list-unstyled">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#div1">Introduction</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 RIDE Journal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

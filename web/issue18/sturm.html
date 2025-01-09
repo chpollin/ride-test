@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DER STURM</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- style.css (pre-existing, not generated here) -->
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width: 50px; height: auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Main Article Column -->
+      <div class="col-md-8">
+        <!-- Title Section -->
+        <section class="mb-4">
+          <h2 class="h2">DER STURM</h2>
+          <p class="text-muted">
+             Institut für Dokumentologie und Editorik e.V., December 2023 (http://ride.i-d-e.de/issues/issue-18/sturm)
+          </p>
+          <hr>
+        </section>
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-4">
+          <h3 class="h5">Abstract</h3>
+          <p>This paper reviews the digital edition Der Sturm – Digitale Quellenedition zur
+                  Geschichte der internationalen Avantgarde, which aims to bring together all
+               existing digital sources on the STURM company, to make them accessible and to link
+               them with each other. Initiated by Herwarth Walden by founding the STURM magazine for
+               contemporary art, the STURM company provided many different platforms (e.g., gallery,
+               publishing, theatre) for the art scene in Germany at the beginning of the 20th
+               century and had also a big impact on the international avant-garde. The digital
+               edition currently offers facsimiles, transcriptions, and commentaries on a part of
+               the letters, the encoding of the sources and texts is done in TEI-XML and can be
+               downloaded or accessed via an API. Inventory lists exist for the other documents
+               which link to the source of the digital image. All semantic and structural entities
+               of STURM sources are permanently referenced using persistent identifiers.</p>
+
+        </section>
+
+        <!-- Body Content -->
+        <section id="div1">
+  <h3 class="h5">Section</h3>
+<p>Titelseite Der Sturm – Monatsschrift für Kultur und die
+                     Künste, Juli 1916, Universitätsbibliothek Heidelberg.
+               Die Zeitschrift <em>Der Sturm</em> wird im Jahr 1910 von dem
+               Publizisten, Dichter, Verleger und Komponisten Herwarth Walden (eigentlich Georg
+               Lewin) in Berlin gegründet und dient als Plattform der avantgardistischen Kunstszene
+                  (<a href="#img1" target="_blank">Abb. 1</a>). Der STURM avanciert in den
+               folgenden Jahren zu einem regelrechten Unternehmen. Neben der Zeitschrift entsteht
+               die STURM-Galerie, in der Walden zahlreiche Künstlerinnen und Künstler der Zeit
+               ausstellt (u. a. Sonia Delaunay, Natalja Gontscharowa, Else Lasker-Schüler, Gabriele
+               Münter und Marianne von Werefkin, Marc Chagall, Franz Marc, Wassily Kandinsky und
+               Paul Klee). Darüber hinaus entwickeln sich die STURM-Abende, die STURM-Theaterbühne,
+               der STURM-Verlag, eine Kunstbuchhandlung und die STURM-Akademie.<span class="note">[Vgl. Trautmann 2018, 25ff und
+                  vgl. auch Schirn Kunsthalle 2015a
+                  und 2015b.]</span></p>
+<p>Herwarth Walden ist eine der Schlüsselfiguren der Kunst-Moderne in
+               Deutschland. Zunächst hatte Walden 1903 den <em>Verein für Kunst</em> gegründet,
+               dem zahlreiche bekannte Künstlerinnen und Künstler der Zeit angehörten (u. a. Thomas
+               und Heinrich Mann, Else Lasker-Schüler, Rainer Maria Rilke, Alfred Döblin oder
+               Gottfried Benn). Dieses Netzwerk baute er – auch zusammen mit seiner späteren Ehefrau
+               Nell Walden – kontinuierlich auf. Es bildete die Basis für alle folgenden
+               Entwicklungen. Die Zeitschrift <em>Der Sturm</em> war über 20 Jahre Sprachrohr
+               europäischer avantgardistischer Strömungen in Literatur, Bildender Kunst, Theater,
+               Architektur und Musik und hatte weitreichenden Einfluss auf die internationale
+                  Avantgarde.<span class="note">[Vgl. Chytraeus-Auerbach und Uhl 2013,
+                  7-11, vgl. auch Sprengel 1991
+                  und vgl. auch arthistoricum.net.]</span></p>
+<p>Gerade die vielfältigen und gattungsübergreifenden Aktivitäten in
+               unterschiedlichen Bereichen der Künste machen Herwarth Walden und das
+               STURM-Unternehmen für viele geisteswissenschaftliche Disziplinen und auch für
+               interdisziplinäre Fragestellungen interessant. Die Quellen, welche Briefe,
+               Zeitschriften, Ausstellungskataloge, Theaterjahrbücher, verschiedene Schriften und
+               andere Materialien wie Plakate oder Fotografien umfassen,<span class="note">[Vgl.
+                     Trautmann und Schrade
+                     2018, hier: https://sturm-edition.de/quellen.html.]</span> sind von hoher Relevanz
+               für die kunsthistorische Forschung, aber auch für die Geschichtswissenschaft, die
+               Literaturwissenschaft, Theaterwissenschaft und Musikwissenschaft. Zahlreiche
+               Anknüpfungspunkte gibt es aber auch für die Kunstmarktforschung. Darüber hinaus sind
+               die Quellen natürlich auch disziplinübergreifend für die Digital Humanities von
+               großem Interesse.</p>
+<p>Startseite Der Sturm – Digitale Quellenedition zur Geschichte
+                     der internationalen Avantgarde.
+               Die Digitale Edition <em>Der Sturm</em> setzt sich das Ziel, alle
+               existierenden digitalen Quellen zum STURM-Unternehmen zusammenzuführen, zu
+               erschließen und untereinander zu verknüpfen, um eine (Teil-)geschichte der
+               internationalen Avantgarde zeichnen zu können (<a href="#img2" target="_blank">Abb. 2</a>).<span class="note">[Vgl. Trautmann und Schrade 2018, hier
+                  insbesondere https://sturm-edition.de/projekt.html und https://sturm-edition.de/projekt/ziel.html.]</span></p>
+<p>Ausgehend von der Ausstellung STURM-Frauen, welche 2015 in der Schirn
+               Kunsthalle in Frankfurt gezeigt wurde und erstmals den weiblichen Beitrag zur
+               Entwicklung der Avantgarde in den Blick nahm,<span class="note">[Die Ausstellung fand
+                  statt vom 30. Oktober 2015 bis 7. Februar 2016. Schirn Kunsthalle 2015a.]</span> wurde die digitale
+               Edition als kollaboratives Digital-Humanities-Projekt an der <em>Akademie der
+                  Wissenschaften und der Literatur Mainz</em> insbesondere zusammen mit dem
+               wissenschaftlichen Nachwuchs konzipiert und sieht sich in erster Linie als Projekt im
+               Bereich der Geschichte. Es ist an der Akademieprofessur für Digital Humanities
+               angesiedelt, wurde von Marjam Trautmann und Torsten Schrade erarbeitet und wird
+               weiterhin von diesen herausgegeben.<span class="note">[Vgl. Trautmann und Schrade 2018, hier
+                  insbesondere https://sturm-edition.de/projekt/ziel.html.]</span> Eine erste Grundlage
+               für die Erarbeitung der digitalen Edition lieferte eine Masterarbeit von Marjam
+               Trautmann (<a href="#trautmann2018" target="_blank">2018</a>). Bislang sind
+               alle Arbeiten an dem Projekt ohne eine externe Förderung durchgeführt worden, was
+               hinsichtlich der Elaboriertheit des Projekts besonders betont werden muss. Dies ist
+               sicherlich vor allem wegen der institutionellen Anbindung möglich. Alle Inhalte sind
+               zudem frei zugänglich.</p>
+<p>Die Quellenedition umfasst sechs Abteilungen:
+                  Abteilung I – STURM-Briefe
+                  Abteilung II – STURM-Zeitschrift
+                  Abteilung III – STURM-Kataloge (Ausstellungen)
+                  Abteilung IV – STURM-Bühne (Theaterjahrbücher)
+                  Abteilung V – STURM-Schriften (Bücher des Verlages)
+                  Abteilung VI – STURM-Materialien (sonstiges Quell-Material)</p>
+<p>Alle sechs Abteilungen befinden sich noch im Aufbau: In der Abteilung I
+               wurde bereits mit der Erschließung der Quellen begonnen, wohingegen die Abteilungen
+               II bis VI zunächst die aus unterschiedlichen Quellen zur Verfügung stehenden
+               Digitalisate in Bestandslisten versammeln. Die Digitalisate der STURM-Zeitschriften
+               (Abteilung II) werden zum Beispiel von der Universitätsbibliothek Heidelberg, die
+               Digitalisate der STURM-Kataloge (Abteilung III) vom Zentralinstitut für
+               Kunstgeschichte in München und die Digitalisate der STURM-Bühne (Abteilung IV) vom
+               Blue Mountain Project zur Verfügung gestellt. Abteilung V und VI stellen jeweils
+               Bestandslisten bereit, die im STURM-Verlag erschienenen Schriften bzw. andere
+               Materialien verzeichnen und diese ggf. mit dem Link zu einem Digitalisat
+                  versehen.<span class="note">[Für weitergehende Informationen vgl. Trautmann und Schrade
+                     2018, hier insbesondere https://sturm-edition.de/quellen.html.]</span> Der nächste Schritt für
+               die Abteilungen II bis VI soll sein, Volltexte bereitzustellen und diese im
+               XML-Format nach den <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html" target="_blank">TEI-Guidelines</a> zu erfassen.<span class="note">[Vgl. Trautmann und Schrade 2018, hier die
+                  Unterseiten zu den Abteilungen II bis VI: https://sturm-edition.de/quellen/zeitschrift.html, https://sturm-edition.de/quellen/kataloge.html, https://sturm-edition.de/quellen/buehne.html, https://sturm-edition.de/quellen/schriften.html, https://sturm-edition.de/quellen/materialien.html.]</span></p>
+<p>Parallelansicht von Transkript und Faksimile.
+               In der Abteilung I STURM-Briefe sollen die in der Handschriftenabteilung der
+               Staatsbibliothek zu Berlin Preußischer Kulturbesitz über 3.700 verzeichneten und
+               digitalisierten Briefe von STURM-Künstlern und -Künstlerinnen an Herwarth Walden
+               historisch-kritisch digital ediert werden. Ein Großteil des Materials, welches
+               Briefe, Postkarten und Telegramme umfasst, ist zwar noch nicht erschlossen, drei
+               unterschiedliche Briefkorpora sind aber bereits verzeichnet und vollständig ediert.
+               Es handelt sich um Briefkorpora von Franz Marc, Jacoba van Heemskerck und Guillaume
+               Apollinaire aus dem Zeitraum von 1913 und 1922. Die Briefe sind in der Regel an
+               Herwarth Walden gerichtet, in einigen Fällen auch an seine Frau Nell. Insgesamt sind
+               179 Briefe mit Faksimile, Transkription und Kommentaren erschlossen. Die Digitalisate
+               der Briefe und Postkarten sind in die Seite eingebunden, so dass eine Parallelansicht
+               von Faksimile und Digitalisat möglich ist (<a href="#img3" target="_blank">Abb.
+                  3</a>), wenngleich die auf dieser Ebene angezeigten Bilder eher klein sind,
+               sodass eine Vergrößerung zur genaueren Ansicht lohnt.</p>
+<p>Die Briefe von Franz Marc und Jacoba von Heemskerck wurden innerhalb der
+               Masterarbeit von Marjam Trautmann erstmalig digital ediert: Die Briefe von Jacoba van
+               Heemskerck wurden zwar bereits 2006 von Arend Hendrik Husseen publiziert und ediert
+                  (<a href="#huussen2006" target="_blank">Huussen 2006</a>), jedoch kritisiert
+               Trautmann Husseens Edition aufgrund der Veränderungen in der Transkription im
+               Vergleich zum Original teilweise stark,<span class="note">[Trautmann kritisiert u. a.
+                  Huussens starke Normalisierung, Ergänzungen von Interpunktion und Wörtern und
+                  teilweise falsche Transkription. Sie liefert auch einige Beispiele für ihre
+                  Kritik. Vgl. Trautmann 2018,
+                  10f.]</span> weshalb sie diese Briefe innerhalb der Masterarbeit nochmalig
+               erschließt. Weitere edierte Briefe der Abteilung sind anschließend hinzugekommen, wie
+               sich aus den Zitierhinweisen mit Publikationsdaten entnehmen lässt. Auch werden neue
+               Versionen dokumentiert. Das Projekt verfolgt einen ‚work in progress‘-Ansatz, bei dem
+               die Briefe vom Projektteam digital erschlossen und zeitnah veröffentlicht
+                  werden.<span class="note">[Vgl. Trautmann und Schrade 2018, hier: https://sturm-edition.de/projekt/methodik.html.]</span></p>
+<p>Bei der Transkription der Briefe werden Syntax, Interpunktion und
+               Orthographie vom Original übernommen, wobei Silbentrennungen aufgelöst werden.
+               Unterstreichungen und Hochstellungen werden abgebildet, Durchstreichungen nur dann,
+               wenn sie als inhaltlich relevant erachtet werden und nicht nur zur Tilgung
+               orthographischer Fehler dienen. Die Briefe werden nicht topographisch nachgebildet,
+               Briefmarken, Poststempel, Wasserzeichen und Vordrucke und auch Postkartenmotive in
+               der Regel nicht erfasst. Handschriftliche Beilagen der Briefe werden in die
+               Transkription aufgenommen, beigelegte Zeichnungen und Zeitungsausschnitte werden in
+               der Regel nicht transkribiert (außer ggf. handschriftliche Kommentare oder
+               Unterstreichungen), aber als digitales Faksimile bereitgestellt.<span class="note">[Vgl. auch Trautmann und
+                     Schrade 2018, hier: https://sturm-edition.de/edition/briefe.html.]</span> Die Dokumentation
+               des Projekts ist nicht nur im Bereich der Textbehandlung sehr gut und ausführlich,
+               sondern auf allen Ebenen, z. B. auch bei der Darstellung systematischer und
+               technischer Aspekte. Dadurch wird die Erarbeitung der digitalen Edition sehr
+               transparent und nachvollziehbar, was an dieser Stelle besonders hervorgehoben werden
+               muss.</p>
+<p>Darstellung der Kommentare im Text und in den Fußnoten.
+               Die Kommentare sind in Fußnoten platziert und enthalten erläuternde
+               Beschreibungen zu im Text erwähnten Ausstellungen, Vortragsreihen, Kolumnen,
+               Kunstvereinen, Werken oder aber auch zu Begrifflichkeiten (z. B. ‚Sturmzettel‘).
+               Darüber hinaus werden in den Fußnoten alle historischen und politischen Referenzen in
+               den Briefen – insbesondere in Bezug auf Entwicklungen im 1. Weltkrieg – ausführlich
+               kontextualisiert. In den Texten erwähnte und im <em>Sturm</em> oder anderen
+               Medien publizierte Werke werden seitengenau verlinkt. Ferner werden hier
+               bibliographische Angaben gemacht für Zeitschriften, Artikel und Bücher, die im Text
+               genannt werden. Orte, Werke und Personen werden im Text selbst durch Links auf
+               entsprechende Registereinträge, die jeweils Verweise auf Normdatensätze enthalten,
+               verzeichnet (<a href="#img4" target="_blank">Abb. 4</a>). Laut Projektwebseite
+               sollen in einer nächsten Projektphase auch weitere Textzeugen – vereinzelte, schon in
+               Büchern publizierte Briefe – in den Metadaten der entsprechenden Briefe dokumentiert
+                  werden.<span class="note">[Vgl. Trautmann und Schrade 2018, hier: https://sturm-edition.de/quellen/briefe.html.]</span> Die Codierung der
+               Metadaten folgt den Guidelines der TEI (P5). Die abteilungsübergreifenden
+               Editionsrichtlinien sind ausführlich dokumentiert.<span class="note">[Vgl. Trautmann und Schrade
+                     2018, hier: https://sturm-edition.de/edition.html.]</span></p>
+<p>Personenregister.
+               Das Personenregister führt 199 Personen auf, die in den Volltexten verknüpft
+               sind und im Register auf den jeweiligen Eintrag in der Gemeinsamen Normdatei der
+               Deutschen Nationalbibliothek (GND) verweisen (<a href="#img5" target="_blank">Abb. 5</a>). Alle Registereinträge sind mit den jeweiligen Textstellen in den
+               Briefen verlinkt. Das Ortsregister, welches neben der Liste auch über eine Karte
+               erreichbar ist, enthält 87 in den Texten genannte Orte, jeweils verbunden mit der
+               zugehörigen externen GeoNames-Normdatei. Im Werkregister befinden sich alle 172 im
+               Volltext explizit erwähnten Zeitschriften, Zeitungen, Bücher, Artikel und Kunstwerke,
+               die teilweise mit Links auf externe Ressourcen wie die GND und frei verfügbare
+               Digitalisate versehen sind. Die Lemmata werden im Werkregister nach den in den Texten
+               auftretenden Wörtern erstellt und sind daher in vielen Fällen wenig aussagekräftig
+               (z. B. ‚Bild‘). Man könnte hier überlegen, das Register nach den Angaben in der GND
+               ‚Autor*in/Künstler*in:Titel‘ aufzubauen.</p>
+<p>Die Register sollen abteilungsübergreifend erstellt werden, aufgrund des
+               aktuellen Bearbeitungsstands sind die jeweiligen Quellenverweise bislang nur der
+               Abteilung I Briefe zugeordnet und mit den entsprechenden Datensätzen verlinkt. Die
+               einzelnen Registerlemmata führen zu einem Stammdatenblatt, auf dem die jeweiligen
+               Registerinformationen (Normdatenverweis, Auftreten in den Quellen) nochmals separat
+               aufgeführt werden. Perspektivisch soll dieses mit weiteren Informationen,
+               beispielsweise aus der GND und Wikipedia, automatisiert ergänzt werden. In den
+               Briefen selbst sind die Entitäten mit ihrem jeweiligen Register-Stammdatenblatt
+               verknüpft. Ferner ist eine Erweiterung der Register durch die Erfassung von
+               Ereignissen geplant (bspw. STURM-Ausstellungen).<span class="note">[Vgl. auch Trautmann und Schrade
+                     2018, hier: https://sturm-edition.de/register.html.]</span></p>
+<p>Neben den zentralen Registerzugängen Person, Ort und Werk ist innerhalb
+               der Abteilungen auch ein chronologischer Einstieg möglich. Hier befindet sich jeweils
+               eine nach Jahren sortierte Liste der Quellen. Bei den Briefen kann man zusätzlich
+               auch über die Künstler*innen auf die Inhalte zugreifen. Laut Projektwebseite werden
+               weiterhin mittelfristig drei zusätzliche Quellenzugänge angestrebt: Ereignisse,
+               Körperschaften und Sachbegriffe.<span class="note">[Vgl. auch Trautmann und Schrade 2018, hier: https://sturm-edition.de/projekt/methodik.html.]</span></p>
+<p>Bestandsliste der digitalen Bestände der STURM
+                     Zeitschrift.
+               Die Digitalisate stammen aus verschiedenen Quellen (s. o.) und sind in den
+               einzelnen Abteilungen verlinkt und über Bestandslisten abrufbar (<a href="#img6" target="_blank">Abb. 6</a>), in der Abteilung Briefe sind sie in die Seite selbst
+               eingebunden, d.h. alle Briefseiten, alle Beilagen und eine Abbildung mit Farbkeil
+               sind neben der Transkription in einer Thumbnail-Ansicht dargestellt. Es gibt auch
+               eine Zoomstufe, jedoch sind die Abbildungen im Vergleich zu den Originalen hier auf
+               eine Breite von 800px (Hochformat) bzw. 1200px (Querformat) skaliert, was aber für
+               die Lesbarkeit absolut ausreichend ist. Die Originale dürften auch nicht wesentlich
+               größer sein. Wenn man die Abbildungen höher aufgelöst sehen möchte, kann man auf den
+               Link zum DFG-VIEWER klicken und gelangt zu den Originalen in der Staatsbibliothek
+               Berlin. Die Zeitschriften liegen z. B. in Heidelberg digitalisiert vor. Es existieren
+               DOIs für Heft, Einzelseite und Artikel, aber (noch) nicht für einzelne
+               Abbildungen.</p>
+<p>Im Sinne der Nachhaltigkeit erfolgt die Codierung der Quellen und
+               Begleittexte der digitalen Edition in TEI-XML. Sie werden darüber hinaus mit
+               übergreifenden Metadaten (teiHeader) und Normdaten versehen. Persistente
+               Identifikatoren und Permalinks sorgen zudem für eine dauerhafte Adressierung und
+               Zitierbarkeit. Die Identifikatoren sind systematisch nach einem einheitlichen Schema
+               angelegt und lassen durch ihre semantische Strukturierung auch Rückschlüsse auf die
+               Quelle zu:
+               TYP.ABTEILUNG.DATIERUNG.SIGLE.LAUFNUMMER[#][ABSATZ/BILD].[KOLUMNE].[SEITE/FOLIO]. Für
+               einen Brief von Franz Marc ergibt sich daher zum Beispiel: <a href="https://web.archive.org/web/20231011124338/https://sturm-edition.de/quellen/briefe/chronologie/Q.01.19140115.FMA.01.html" target="_blank">https://sturm-edition.de/id/Q.01.19140115.FMA.01</a>. Für einen STURM-Katalog
+               vom 20. September 1913 lässt sich folgender Identifikator ermitteln:
+               Q.03.19130920.STK.01. Der Aufruf einer URI führt immer zur aktuellen Version der
+               Entität, wobei auch alle vorangegangenen Versionen flexibel aufrufbar sind, z. B.
+                  <a href="https://web.archive.org/web/20231011124220/https://sturm-edition.de/quellen/briefe/chronologie/Q.01.19140115.FMA.01.v1.html" target="_blank">https://sturm-edition.de/id/Q.01.19140115.FMA.01/1</a>. Dies ist ein weiterer
+               vorbildlicher Schritt zu einer transparenten und nachvollziehbaren digitalen
+               Edition.</p>
+<p>Die Systematisierung und Modellierung der zahlreichen unterschiedlichen
+               und verteilten Quellentypen des STURM bildet hier den Kern der digitalen Methodik.
+               Die Verknüpfungen und Beziehungen der Quellen untereinander werden derzeit unter
+               Anwendung bestehender Ontologien wie dem CIDOC Conceptual Reference Model oder
+               fachspezifischer Vokabulare wie dem Getty Art & Architecture Thesaurus (AAT)
+               semantisch modelliert und perspektivisch als Linked Open Data verfügbar gemacht.
+               Zunächst werden die in den bereits edierten Quellen annotierten Entitäten wie
+               Personen, Orte und Werke semantisch verknüpft, anschließend auch Entitäten wie zum
+               Beispiel Körperschaften und Ereignisse.<span class="note">[Die Daten werden noch
+                  nicht in dieser Form zur Verfügung gestellt. Die Informationen gehen aus einem
+                  Posterbeitrag der DHd 2019 hervor. Vgl. Lorenz, Müller-Dannhausen und Trautmann
+                     2019, 273-275.]</span></p>
+<p>Für die Edition der Quellen in XML wurde eine Webanwendung für die
+               native XML-Datenbank eXist entwickelt. Die Editionsarbeiten werden mit oXygen
+               durchgeführt, die Online-Publikation der Quellen erfolgt aus der Anwendung heraus,
+               indem alle Bestandteile als XML vorgeneriert und dann als statisches HTML
+               ausgeliefert werden. Diese Softwarekomposition soll die Performance steigern und die
+               Nachhaltigkeit verbessern, indem alle Komponenten und auch die Präsentationsschicht
+               und die generierten Formate systemneutral verfügbar gemacht werden. Im Bereich der
+               Textverarbeitung kommt TUSTEP zum Einsatz.<span class="note">[Diese Informationen
+                  finden sich in der gut dokumentierten Softwarearchitekturbeschreibung: Trautmann und Schrade
+                     2018, hier: https://sturm-edition.de/ressourcen/software.html. Weitere Informationen
+                  zur Steigerung der Nachhaltigkeit Digitaler Editionen am Beispiel der
+                  STURM-Edition: Schrade
+                  2018.]</span> Die Editionssoftware dieses Projektes steht unter MIT-Lizenz
+               und kann über GitHub frei heruntergeladen und weiterentwickelt werden.<span class="note">[Siehe https://github.com/digicademy/sturm-php-app/releases/ und https://github.com/digicademy/sturm-exist-app/releases/.]</span></p>
+<p>Die visuell ansprechende Webseite funktioniert auch auf
+                     mobilen Geräten.
+               Die Webseite ist responsiv gestaltet und funktioniert auch auf mobilen
+               Endgeräten (<a href="#img7" target="_blank">Abb. 7</a>). Sie ist klar
+               strukturiert und sehr übersichtlich. Alle Informationen sind leicht zugänglich und
+               jeder Bereich ist ausführlich dokumentiert. Auch Rahmeninformationen wie Impressum
+               und Kontakt sind leicht auffindbar. Darüber hinaus ist die Webseite visuell
+               ansprechend und mit Liebe zum Detail gestaltet. Die Besonderheit des Webdesigns
+               besteht darin, dass die Typographie und die Druckgestalt der STURM-Zeitschrift in das
+               Erscheinungsbild einbezogen wurden, indem die historische Schrift der Zeitschrift als
+               Webfont eingebunden und der Text (je nach Endgerät) auch mehrspaltig visualisiert
+               wird. Im Vorfeld wurde eine Schriftanalyse durchgeführt, um die historische Schrift
+               zu ermitteln. Dabei wurde herausgefunden, dass die ersten Ausgaben mit der
+               Schriftfamilie „Romana“ des deutsch-amerikanischen Schriftdesigners Gustaf F.
+               Schroeder gesetzt wurden. Ein daran orientierter Webfont kommt nun in der
+               Präsentation zum Einsatz.<span class="note">[Zur Typographie vgl. Trautmann und Schrade
+                     2018, hier: https://sturm-edition.de/ressourcen/software.html.]</span></p>
+<p>Auszug aus einer TEI-codierten XML-Datei.
+               Für die Nachnutzung der Forschungsdaten und Texte stehen unterschiedliche
+               Optionen zur Verfügung. Sie können zusammen mit der Anwendung heruntergeladen, aber
+               auch über eine Schnittstelle als XML oder JSON bezogen werden. Es gibt vier
+               Einstiegspunkte: /letters /persons /places und /works, die jeweils
+               Registerinformationen zu den entsprechenden IDs ausliefern. Über den
+               Auslieferungspunkt /files können direkt die TEI-codierten XML-Files der edierten
+               Briefe (Bsp. <a href="https://web.archive.org/web/20231011124042/https://sturm-edition.de/api/files/Q.01.19211211.JVH.01.xml" target="_blank">https://sturm-edition.de/api/files/Q.01.19211211.JVH.01.xml</a>) abgerufen
+               werden. Der Link zu diesem XML-File ist auch bei jedem Datensatz zu finden (<a href="#img8" target="_blank">Abb. 8</a>). Für die erschlossenen Personen und
+               Werke kann eine Beacon-Datei heruntergeladen werden. Die Korrespondenz-Metadaten der
+               STURM-Künstlerbriefe sind als Correspondence Metadata Interchange Format (<a href="https://web.archive.org/web/20231011123946/https://correspsearch.net/de/dokumentation.html" target="_blank">CMIF</a>) verfügbar. Alle Forschungsdaten, aber auch alle darüber hinaus
+               veröffentlichten Materialien stehen unter Creative Commons Attribution 4.0
+               International Lizenz (CC BY 4.0) zur Nachnutzung zur Verfügung. Darüber hinaus sind
+               weitere digitale Ressourcen wie eine Projektbibliographie oder verschiedene
+               Publikationen zur digitalen Edition verfügbar. Auch hier muss erneut der
+               fortschrittliche Ansatz der digitalen Edition hervorgehoben werden.</p>
+<p>Die unterschiedlichen Zugänge zur digitalen Edition (Künstler, Jahr,
+               Abteilung, etc.) bieten einen guten Einstieg für eine explorative oder systematische
+               Erforschung des Materials. Wünschenswert wäre hier die Ergänzung einer Volltextsuche,
+               um gezielt nach Wörtern recherchieren zu können, die in den Briefen auftauchen. Für
+               die kunstgeschichtliche Forschung wäre darüber hinaus ein eigenes Register für
+               Kunstwerke interessant, deren Lemmata (wie oben bereits angemerkt) aber
+               systematischer erfasst werden sollten. Die verwendeten Postkarten werden nur dann als
+               Medium beschrieben, wenn es sich um ungewöhnliche Textdokumente, wie die Verwendung
+               einer Ausstellungsdauerkarte als Postkarte handelt (<a href="https://web.archive.org/web/20231011123833/https://sturm-edition.de/quellen/briefe/gap/Q.01.19130412.GAP.01.html" target="_blank">https://sturm-edition.de/quellen/briefe/gap/Q.01.19130412.GAP.01.html</a>). Aus
+               kunsthistorischer Perspektive wären die Motive auf den Postkarten und ggf. die Motive
+               auf den Briefmarken von Interesse und könnten evtl. in die Erschließung aufgenommen
+               werden. Darüber hinaus würde sich eine Visualisierung der historischen
+               Netzwerkanalyse zu Künstlerinnen und Künstlern anbieten.<span class="note">[Eine
+                  umfassende Netzwerkanalyse ist bereits in Planung, vgl. Lorenz, Müller-Dannhausen und Trautmann
+                     2019, 273-275.]</span></p>
+<p>Zusammenfassend lässt sich festhalten: Die vorliegende digitale Edition
+               ist für die disziplinäre und interdisziplinäre geisteswissenschaftliche Forschung von
+               hoher Relevanz, wird hier doch erstmalig der Zugriff auf die bereits vorliegenden
+               digitalen Quellen aller STURM-Abteilungen ermöglicht, so dass ein umfassendes
+               historisches Bild der STURM-Ära gezeichnet werden kann. Die vielfältigen Kommentare
+               und Erschließungsinformationen in der Abteilung Briefe und die digitale Umsetzung
+               tragen maßgeblich dazu bei. Im Sinne eines Informationsportals stehen zahlreiche
+               weitere Meta-Informationen und Referenzen zur Verfügung, so dass man hoffentlich
+               zukünftig auch über den Projektkontext hinaus in das STURM-Universum eintauchen
+               können wird. Vor allem ist jeder Bereich der Edition, die Software, die Methodik etc.
+               hervorragend und in vorbildlicher Art und Weise dokumentiert. Auch im Sinne
+               nachhaltiger Softwareentwicklung und der Nachnutzbarkeit von
+               Erschließungsinformationen ist das Projekt ein vorbildliches Beispiel, zumal noch
+               einmal hervorzuheben ist, dass das Projekt bislang ohne jegliche externe Förderung
+               ausgekommen ist. Besonders zu bemerken ist darüber hinaus die Einbindung des
+               wissenschaftlichen Nachwuchses. Das Projekt überzeugt auf allen Ebenen und ist in der
+               Erschließung und Dokumentation von Wissen und der Bereitstellung nachnutzbarerer
+               Ressourcen zur Orientierung für ähnliche Projekte sehr zu empfehlen.</p>
+</section>
+
+<figure id="img1" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-1.png" alt="Titelseite Der Sturm – Monatsschrift für Kultur und die
+                     Künste, Juli 1916, Universitätsbibliothek Heidelberg." class="img-fluid"/>
+  <figcaption>Titelseite Der Sturm – Monatsschrift für Kultur und die
+                     Künste, Juli 1916, Universitätsbibliothek Heidelberg.</figcaption>
+</figure>
+<figure id="img2" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-2.png" alt="Startseite Der Sturm – Digitale Quellenedition zur Geschichte
+                     der internationalen Avantgarde." class="img-fluid"/>
+  <figcaption>Startseite Der Sturm – Digitale Quellenedition zur Geschichte
+                     der internationalen Avantgarde.</figcaption>
+</figure>
+<figure id="img3" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-3.png" alt="Parallelansicht von Transkript und Faksimile." class="img-fluid"/>
+  <figcaption>Parallelansicht von Transkript und Faksimile.</figcaption>
+</figure>
+<figure id="img4" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-4.png" alt="Darstellung der Kommentare im Text und in den Fußnoten." class="img-fluid"/>
+  <figcaption>Darstellung der Kommentare im Text und in den Fußnoten.</figcaption>
+</figure>
+<figure id="img5" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-5.png" alt="Personenregister." class="img-fluid"/>
+  <figcaption>Personenregister.</figcaption>
+</figure>
+<figure id="img6" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-6.png" alt="Bestandsliste der digitalen Bestände der STURM
+                     Zeitschrift." class="img-fluid"/>
+  <figcaption>Bestandsliste der digitalen Bestände der STURM
+                     Zeitschrift.</figcaption>
+</figure>
+<figure id="img7" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-7.png" alt="Die visuell ansprechende Webseite funktioniert auch auf
+                     mobilen Geräten." class="img-fluid"/>
+  <figcaption>Die visuell ansprechende Webseite funktioniert auch auf
+                     mobilen Geräten.</figcaption>
+</figure>
+<figure id="img8" class="mb-4">
+  <img src="../../data/issue18/sturm/pictures/picture-8.png" alt="Auszug aus einer TEI-codierten XML-Datei." class="img-fluid"/>
+  <figcaption>Auszug aus einer TEI-codierten XML-Datei.</figcaption>
+</figure>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-4">
+        <section class="mb-4">
+          <h4 class="h6">Meta</h4>
+          <ul class="list-unstyled">
+            <li><strong>Published:</strong> December 2023</li>
+            <li><strong>Publisher:</strong> Institut für Dokumentologie und Editorik e.V.</li>
+          </ul>
+        </section>
+
+        <section class="mb-4">
+          <h4 class="h6">Tags</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary">18th century</span>
+            <span class="badge bg-secondary">Account books</span>
+            <span class="badge bg-secondary">Digital edition</span>
+          </div>
+        </section>
+
+        <section>
+          <h4 class="h6">TOC</h4>
+          <ul class="list-unstyled">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#div1">Introduction</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 RIDE Journal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEI Publisher</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- style.css (pre-existing, not generated here) -->
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width: 50px; height: auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Main Article Column -->
+      <div class="col-md-8">
+        <!-- Title Section -->
+        <section class="mb-4">
+          <h2 class="h2">TEI Publisher</h2>
+          <p class="text-muted">
+             Institut für Dokumentologie und Editorik e.V., December 2024 (http://ride.i-d-e.de/issues/issue-19/tei-publisher)
+          </p>
+          <hr>
+        </section>
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-4">
+          <h3 class="h5">Abstract</h3>
+          <p>The TEI Publisher is an open-source tool designed to simplify the
+               publication of TEI encoded texts for researchers without extensive programming
+               knowledge. It allows users to transform XML data into web-based digital editions
+               using predefined templates and custom styles. Developed by eXist-Solutions, it
+               integrates with the eXist-db XML database to store and organize data, offering
+               flexibility for different use cases. Initially launched in 2015, the tool is under
+               continuous development, with regular updates introducing new features and
+               improvements. In this review, we examine how TEI Publisher balances ease
+               of use with deep customization options. We demonstrate how scholars are empowered to
+               produce digital editions rapidly and how researchers can experiment with various
+               re-presentations of their data using a graphical interface and a set of predefined
+               configurations. We also discuss how, while it lowers barriers for less technical
+               users, it nevertheless requires a solid understanding of TEI and proficiency with XML
+               technologies for more complex customization. Using a small practical example, we will
+               demonstrate some of the core functions of the TEI Publisher and
+               highlight both the advantages and drawbacks affecting its presentation and usability.
+               TEI Publisher proves to be a mature and easy-to-use tool for projects with moderate
+               technical demands, suited for researchers seeking rapid results. However, it falls
+               short in accessibility, citability, and adaptability for highly customized use cases,
+               revealing areas for future improvement in usability and inclusivity.</p>
+
+        </section>
+
+        <!-- Body Content -->
+        <section id="div1">
+  <h3 class="h5">Eröffnung des Reviews</h3>
+</section>
+
+<section id="div2">
+  <h3 class="h5">Methoden und Implementierung</h3>
+</section>
+
+<section id="div3">
+  <h3 class="h5">Benutzerfreundlichkeit, Nachhaltigkeit und Wartbarkeit</h3>
+</section>
+
+<section id="div4">
+  <h3 class="h5">Userinteraktion, GUI and Visualisierungen</h3>
+</section>
+
+<section id="div5">
+  <h3 class="h5">Fazit</h3>
+<p>Der <em>TEI Publisher</em> spielt in der TEI-Community eine immer
+               größere Rolle. Die seit einigen Jahren existierende und stetig anwachsende <em>TEI
+                  Publisher Registry</em><span class="note">[TEI Publisher Registry. Einsehbar auf der offiziellen Website von
+                  e-editiones: https://web.archive.org/web/20240904085848/https://www.e-editiones.org/map/.]</span>,
+               die auf Basis einer Kartenansicht sämtliche mit dem <em>TEI Publisher</em>
+               umgesetzte Projekte geografisch verzeichnet, zeigt nicht nur die Vielfalt sondern
+               auch die zunehmende Bedeutung dieser Software für die Umsetzung digitaler
+               Editionsvorhaben. Als Tool bietet der <em>TEI Publisher</em> viele nachgefragte
+               Funktionen für die Forschung, die die technischen Hürden für die Erstellung digitaler
+               Editionen senken kann. Allerdings offenbaren sich bei genauerer Betrachtung einige
+               vernachlässigte Aspekte, die für die Benutzerfreundlichkeit und die wissenschaftliche
+               Integrität von entscheidender Bedeutung sind.</p>
+<p>Positiv sei erwähnt, dass der <em>TEI Publisher</em> schon jetzt
+               eine sehr schnelle Lösung bietet um bei einem vorhanden TEI-XML-Korpus Darstellungs-
+               und Publikationen prototypisch zu erzeugen und damit im Sinne des
+                  <em>rapid-prototypings</em> eine wichtige Funktion im Projektablauf übernimmt.
+               EditorInnen können so schnell einen Eindruck davon bekommen, wie ihre Texte in einer
+               späteren Edition aussehen können und anschließend diese Darstellung mit
+               vergleichsweise geringen technischen Aufwand modifizieren. Für Projekte, die ein
+               umfangreiches Korpus mit geringer oder mittlerer Erfassungstiefe und Komplexität
+               umfassen - also überwiegend gebräuchliche TEI-XML-Elemente und wenig spezifische
+               Darstellungsformen - kann der <em>TEI Publisher</em> ebenfalls eine sehr gute
+               Lösung sein. Eine Edition, Plattform oder Webseite kann damit ohne großen
+               Entwicklungsaufwand erstellt werden. Hier muss aber auch erwähnt werden, dass die
+               technische Komplexität schnell und stark ansteigt, sobald die Anforderungen eines
+               Projektes von den antizipierten Anwendungsfällen abweichen. Die Anpassung der
+               ODD-Dateien und den Templates ist technisch, auch im grafischen Editor, nicht
+               unbedingt trivial und kann schnell komplex werden. Daher sind in diesem Bereich gute
+               Kenntnisse in den X-Technologien erforderlich. Die Nutzung der
+                  <em>Webcomponents</em> bietet zwar mächtige und sinnvolle Funktionalitäten,
+               erhöht aber das Komplexitätsniveau weiter. Hier ist eine konstante
+               EntwicklerInnenstelle nötig, die neben Expertenwissen im Bereich der X-Technologien,
+               Webentwicklung und der gängigen Webtechnologien HTML, CSS und JavaScript, möglichst
+               auch Erfahrungen mit dem Datenbanksystem <em>eXist-db</em> und ihren Eigenheiten
+               vorweisen sollte. Die Einbindung von IIIF-Manifesten ist mit der Migration auf
+               Version 9.0.0 des <em>TEI Publisher</em> positiv zu bewerten. Ein solches Feature
+               treibt die Unterstützung einer plattformübergreifenden Nutzung bildbasierter
+               Medieninhalte weiter voran. Der modifizierte und optisch überarbeitete
+               Annotationseditor ermöglicht einen neuen Blick auf die Daten und bietet neue
+               Möglichkeiten zur Exploration und Erschließung der Quellen.</p>
+<p>Ein Mangel liegt in der Vernachlässigung von barrierefreien Zugängen für
+               Menschen mit Behinderungen. Die Entwicklung von Software sollte stets darauf
+               abzielen, Inklusivität zu fördern und allen NutzerInnen die gleichen Chancen zu
+               bieten. Eine barrierefreie Gestaltung kann durch Hilfestellungen in Form von
+               Screenreader-Kompatibilität, Tastaturkürzeln oder alternativen Darstellungsformen
+               gewährleistet werden. Dieser Aspekt ist nicht nur ethisch wichtig, sondern entspricht
+               auch den Grundprinzipien der Gleichberechtigung im digitalen Raum. Ein weiteres
+               Versäumnis betrifft die unzureichende Berücksichtigung von Zitierfähigkeit auf
+               sämtlichen Granularitätsebenen. Zwar verkündet die Community des <em>TEI
+                  Publisher</em> mit Version 8 ein zentrales URL-Register einzuführen.<span class="note">[Browser history, bookmarkable URLs. Ankündigung im Blogpost von
+                  e-editiones: https://web.archive.org/web/20240119140230/https://www.e-editiones.org/posts/tei-publisher-8/.]</span>
+               Da aber nirgends ersichtlich ist, wo und wann dieses Feature veröffentlicht und für
+               die breite Öffentlichkeit nutzbar sein wird, konnte diese Funktion innerhalb dieser
+               Review nicht getestet werden. Die Verwendung persistenter Identifier ist essentiell,
+               um die Rückverfolgbarkeit und wissenschaftliche Nachvollziehbarkeit von Daten und
+               Inhalten sicherzustellen. Derzeit wird der Zugriff per Dateinamen geregelt. Zum
+               jetzigen Zeitpunkt ist das die einzige „Persistenz“ die es gibt. In der Dokumentation
+               wird auf das Konzept persistenter Identifier und die Rolle innerhalb der Entwicklung
+               des <em>TEI Publisher</em> nicht eingegangen. Eine Software wie der <em>TEI
+                  Publisher</em> sollte immanente Prinzipien wie persistent Identifier und PURLs
+               unterstützen, z.B. durch Resolver/Rewrite-Routinen. Das Fehlen einer solchen
+               zentralen Funktion kann die Glaubwürdigkeit der Forschungsergebnisse beeinträchtigen
+               und die Integration der Software in den wissenschaftlichen Diskurs erschweren. Des
+               Weiteren zeigt sich ein Defizit im Bereich der visuellen Darstellung von Faksimiles.
+               Eine Thumbnail-View oder zumindest eine doppelseitige Ansicht würde eine effiziente
+               Analyse von Texten und Bildern ermöglichen. Die Vernachlässigung solcher Features
+               beeinträchtigt nicht nur die Benutzerfreundlichkeit, sondern kann auch die
+               Effektivität von Forschungsarbeiten beeinflussen, insbesondere in Bezug auf die
+               Arbeit mit historischen Dokumenten oder Handschriften. Insgesamt verdeutlichen diese
+               Versäumnisse, dass die Entwicklung von Software für die Digital Humanities nicht nur
+               auf innovative Funktionen, sondern auch auf grundlegende Prinzipien der
+               Zugänglichkeit, wissenschaftlichen Integrität und Nutzerfreundlichkeit abzielen
+               sollte. Zukünftige Programme und Software sollten daher diese Aspekte prioritär
+               berücksichtigen, um eine umfassende und inklusive Forschungsumgebung zu
+               gewährleisten. Die Community hinter dem <em>TEI Publisher</em> unterstützt
+               Editionsprojekte dabei, einen (öffentlichen) Provider für die Zeit nach Ende des
+               Förderzeitraums zu gewinnen und die langfristige Archivierung der Rohdaten des
+               Projekts zu planen. Es ist somit möglich, mit den VorsteherInnen von e-editiones in
+               Bezug auf potenzielle Hostingangebote in Kontakt zu treten. ForscherInnen und
+               WissenschaftlerInnen können sich über das Hosten ihrer Projekte informieren und, je
+               nach Umfang und Anforderung, in Absprache realisieren. Über vergleichbare preisliche
+               Kategorien für die Dauer des Hostings gibt es keine offiziellen Bekanntmachungen.</p>
+</section>
+
+<figure id="img1" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-1.png" alt="Interface der Testinstanz des" class="img-fluid"/>
+  <figcaption>Interface der Testinstanz des</figcaption>
+</figure>
+<figure id="img2" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-2.png" alt="Aktuelle Versionsnummer der Testinstanz des" class="img-fluid"/>
+  <figcaption>Aktuelle Versionsnummer der Testinstanz des</figcaption>
+</figure>
+<figure id="img3" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-3.png" alt="Ausschnitt aus dem ODD-Editor." class="img-fluid"/>
+  <figcaption>Ausschnitt aus dem ODD-Editor.</figcaption>
+</figure>
+<figure id="img4" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-4.png" alt="Annotationseditor in einer älteren Version des" class="img-fluid"/>
+  <figcaption>Annotationseditor in einer älteren Version des</figcaption>
+</figure>
+<figure id="img5" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-5.png" alt="Annotationseditor in Version 9.0.0 des" class="img-fluid"/>
+  <figcaption>Annotationseditor in Version 9.0.0 des</figcaption>
+</figure>
+<figure id="img6" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-6.png" alt="Erstellung einer eigenen" class="img-fluid"/>
+  <figcaption>Erstellung einer eigenen</figcaption>
+</figure>
+<figure id="img7" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-7.png" alt="Default-View auf eine hochgeladene TEI-XML-Datei in den" class="img-fluid"/>
+  <figcaption>Default-View auf eine hochgeladene TEI-XML-Datei in den</figcaption>
+</figure>
+<figure id="img8" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-8.png" alt="Synoptische Ansicht von Transkription und Faksimile eines
+                        Typoskripts." class="img-fluid"/>
+  <figcaption>Synoptische Ansicht von Transkription und Faksimile eines
+                        Typoskripts.</figcaption>
+</figure>
+<figure id="img9" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-9.png" alt="Dokumentation der" class="img-fluid"/>
+  <figcaption>Dokumentation der</figcaption>
+</figure>
+<figure id="img10" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-10.png" alt="Ausgabe eines Fehlercodes bei fehlgeschlagener Übersetzung
+                        der ODD." class="img-fluid"/>
+  <figcaption>Ausgabe eines Fehlercodes bei fehlgeschlagener Übersetzung
+                        der ODD.</figcaption>
+</figure>
+<figure id="img11" class="mb-4">
+  <img src="../../data/issue19/tei-publisher/pictures/picture-11.png" alt="Figure" class="img-fluid"/>
+  <figcaption>Figure</figcaption>
+</figure>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-4">
+        <section class="mb-4">
+          <h4 class="h6">Meta</h4>
+          <ul class="list-unstyled">
+            <li><strong>Published:</strong> December 2024</li>
+            <li><strong>Publisher:</strong> Institut für Dokumentologie und Editorik e.V.</li>
+          </ul>
+        </section>
+
+        <section class="mb-4">
+          <h4 class="h6">Tags</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary">18th century</span>
+            <span class="badge bg-secondary">Account books</span>
+            <span class="badge bg-secondary">Digital edition</span>
+          </div>
+        </section>
+
+        <section>
+          <h4 class="h6">TOC</h4>
+          <ul class="list-unstyled">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#div1">Introduction</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 RIDE Journal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

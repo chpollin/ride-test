@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A synergistic approach to non-narrative historical sources. The database and
+               digital edition of the Spängler household account books, 1733–1785</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- style.css (pre-existing, not generated here) -->
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width: 50px; height: auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Main Article Column -->
+      <div class="col-md-8">
+        <!-- Title Section -->
+        <section class="mb-4">
+          <h2 class="h2">A synergistic approach to non-narrative historical sources. The database and
+               digital edition of the Spängler household account books, 1733–1785</h2>
+          <p class="text-muted">
+             Institut für Dokumentologie und Editorik e.V., September 2023 (http://ride.i-d-e.de/issues/issue-18/spaengler)
+          </p>
+          <hr>
+        </section>
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-4">
+          <h3 class="h5">Abstract</h3>
+          <p>The household account books of the Salzburg merchant family Spängler cover an
+               exceptionally long period and constitute a unique source for the history of
+               consumption in Central Europe in the eighteenth century. This review assesses the
+               diplomatic and database edition that was published by the University of Salzburg and
+               partners in 2020. The review focuses on the synergies that the scholarly digital
+               edition of the household account books aims to establish between the transcription of
+               the books, a database for querying their contents, and a special section containing
+               biographical entries about the actors registered in the books. The review shows where
+               this combination of editing styles is fruitful, especially for non-narrative sources,
+               and where there is scope for further improvements.</p>
+
+        </section>
+
+        <!-- Body Content -->
+        <section id="div1">
+  <h3 class="h5">Introduction</h3>
+<p>The <a href="https://web.archive.org/web/20220721110558/https://www.spaengler-haushaltsbuecher.at/" target="_blank">Account Books Spängler Online</a> (Ausgabenbücher Spängler Online, short: ASO;
+                  <a href="#reithstoeger2020a" target="_blank">Reith and Stöger 2020a</a>) are
+               a digital edition of four private household accounts of the Salzburg cloth and silk
+               merchant Franz Anton Spängler.<span class="note">[Note that the name of the website
+                  says ’Haushaltsbücher’, whereas the descriptive title of the website specifies
+                  that we are dealing with ‘Ausgabenbücher’, in which only expenses were recorded.
+                  In English, the distinction disappears and the source is described as ‘(household)
+                  account books’.]</span> The books are part of the collections of the Salzburg City
+               Archives and were kept by six family members of different generations (<a href="#reithstoeger2022" target="_blank">Reith and Stöger 2022</a>, 72-74).
+               Reinhold Reith and Georg Stöger (both University of Salzburg) conceptualized,
+               managed, and edited the digital edition of the ASO in collaboration with Luisa
+               Pichler-Baumgartner, Maria Johanna Falkner, and Katharina Scharf (<a href="https://web.archive.org/web/20220721105614/https://www.spaengler-haushaltsbuecher.at/impressum" target="_blank">Imprint</a>). The digital edition and the database that supports querying its
+               contents were published online in June 2020. Reith, Stöger, and their colleagues have
+               worked extensively on the Spängler family and the Salzburg merchant community before
+                  (<a href="#reith2015" target="_blank">Reith et al. 2015</a>; <a href="#reith2016" target="_blank">Reith et al. 2016</a>). The Austrian Science
+               Fund (FWF PUD 10) and some additional organizations funded the <em>in
+                  extenso</em> digital publication of the ASO, which was carried out in
+               cooperation with the Salzburg City Archives. The technical implementation and design
+               were outsourced to a Munich-based consulting company.<span class="note">[Insofar as
+                  this can be inferred from the web application itself, the technologies used for
+                  presenting the content on the web are CSS and JavaScript. The backend technology
+                  used for the different sections of the web application – ‘transcription’,
+                  ‘database’, and ‘persons’ – is not specified.]</span></p>
+<p>The ASO pursue the synergistic combination of a full diplomatic
+               transcription of the source with a (relational) database for querying and computing
+               its contents. Their conceptualization differs from that of well-known forms of
+               digital text editions. Rather than an index, commentary, and description, a database
+               linked with the transcription provides the functionalities for exploring the account
+               books. In so doing, the ASO are part of a tradition of publishing non-narrative
+               historical sources online. Previous examples of digital editions organized in a
+               similar way include the municipal account books of Basel (<a href="#burghartz2015" target="_blank">Burghartz 2015</a>; <a href="#burghartzcalvivogeler2017" target="_blank">Burghartz, Calvi, and Vogeler 2017</a>) and
+               the (unfinished) digital edition of the account books of the Loitz merchant family of
+               Stettin and Danzig (<a href="#lipinska2019" target="_blank">Lipińska et al.
+                  2019</a>). The ASO project associates itself loosely with the emerging
+               methodological tradition of combining textual editing with a database but gives no
+               details about its technical implementation. Since only few other projects in the
+               realm of economic history have pursued the integration of a scholarly digital edition
+               (SDE, in the ASO: ‘<a href="https://web.archive.org/web/20220721105956/https://www.spaengler-haushaltsbuecher.at/transcription" target="_blank">Transcription</a>’) with a relational database for querying its contents (here:
+                  ‘<a href="https://web.archive.org/web/20220721110039/https://www.spaengler-haushaltsbuecher.at/db" target="_blank">Database</a>’), this is quite unfortunate. This review pays special attention
+               to the interaction between transcription and database of the ASO and highlights the
+               strengths, challenges, and weaknesses of this approach.</p>
+</section>
+
+<section id="div2">
+  <h3 class="h5">Subject and content of the edition</h3>
+<p>The household account books document the daily expenses of members of the
+               Spängler family in Salzburg. Their expenses cover a wide variety of topics, ranging
+               from birthday presents for family members to wages paid to personnel, maintenance
+               costs for carriages, expenditures for food supplies, and much more. The source offers
+               much detailed information about the cost of living and wages earned in Salzburg
+               during a significant part of the eighteenth century. Within the historiography of
+               household account books, which took off in the 1970s (<a href="#reithstoeger2022" target="_blank">Reith and Stöger 2022</a>, 72-73), the ASO occupy an
+               exceptional position. Covering more than 50 years from 1733 until 1785, they have a
+               broader scope than earlier editions of private household account books in the German
+               realm (for an overview see <a href="#pichlerbaumgartner2016" target="_blank">Pichler-Baumgartner 2016</a>). They contribute a wealth of microdata to ongoing
+               research about consumption patterns, household expenditures, and social and family
+               relations – topics that are at the core of Reith and Stöger’s research (see e.g. <a href="#reith2015" target="_blank">Reith et al. 2015</a>; <a href="#reith2016" target="_blank">Reith et al. 2016</a>; <a href="#stoeger2019" target="_blank">Stöger 2019</a>; <a href="#reithknapp2021" target="_blank">Reith and Knapp 2021</a>). The ASO also stand out
+               against the bulk of the known private household account books, which have their
+               origins in the fifteenth and sixteenth centuries (see <a href="#reithstoeger2022" target="_blank">Reith and Stöger 2022</a>, 72-73; <a href="#pichlerbaumgartner2016" target="_blank">Pichler-Baumgartner 2016</a>,
+               63-77). Thus, the ASO make an important contribution to the history of consumption
+               and everyday life in the eighteenth century (<a href="#reithstoeger2022" target="_blank">Reith and Stöger 2022</a>, 74).</p>
+<p>The ASO publish the four household account books of the Spängler family.
+               The first book (184 pp.; each scan is one page) covers the period from January 1733
+               to June 1750; the second book (186 pp.) runs from June 1750 until January 1761; the
+               third (188 pp.) from January 1761 to January 1772 and the fourth (180 pp.) from
+               January 1772 to May 1785. Each book was scanned from front to cover. Including the
+               pages before the first bookkeeping entry, which are given a negative page number in
+               the digital edition, the total number of scans is 754. The series is almost without
+               gaps. The editors indicate only three brief interruptions after the death of each of
+               Franz Anton Spängler’s three wives. According to the editors, the transcription and
+               database contain about 21,000 bookkeeping entries. No sampling procedures have been
+               applied. The introduction to the digital edition contains a general bibliography.
+               Additionally, each of the biographical entries in the web application contains
+               extensive references to literature, published and archival sources. For some of the
+               biographical entries, portraits of the persons are included in the web
+               application.</p>
+<p>The ASO make the data accessible in three different ways, starting from
+               the ‘<a href="https://web.archive.org/web/20220721105956/https://www.spaengler-haushaltsbuecher.at/transcription" target="_blank">Transcription</a>’, the ‘<a href="https://web.archive.org/web/20220721110039/https://www.spaengler-haushaltsbuecher.at/db" target="_blank">Database</a>’, or a comprehensive list of ‘<a href="https://web.archive.org/web/20220721110154/https://www.spaengler-haushaltsbuecher.at/persons" target="_blank">Persons</a>’ mentioned in the source. Alongside the ‘Introduction’, these are
+               the main menu items on the homepage of the digital edition. The first section of the
+               web application, ‘Transcription’, provides an enriched transcription of the ASO,
+               which is flanked by scans of the original source. In the transcribed text, the names
+               of persons are linked to biographical entries, which open in a pop-up window when
+               clicked. The list of biographical entries, ‘Persons’, can be accessed separately as
+               well and thus constitutes the second way of accessing the data in the ASO. A simple
+               mouse-click queries the person against the database and immediately shows all
+               mentions of this person in the database entries. The entries themselves provide links
+               to the corresponding book/page in the ‘Transcription’ section. In addition to
+               searches based on personal names, the ‘Database’ section also supports full-text
+               search as well as list-based searches for the categories ‘mode of payment’, ‘type of
+               service / occasion / object’, and ‘recipient’. The ‘Database’ section also supports
+               queries based on date (from, to), value (min, max), and book/page. The latter can be
+               used as a means to access specific pages in the transcription.</p>
+</section>
+
+<section id="div3">
+  <h3 class="h5">Aims and Methods</h3>
+<p>The <a href="https://web.archive.org/web/20220721105854/https://spaengler-haushaltsbuecher.at/introduction" target="_blank">introduction to the web application</a> and a recent publication clearly define
+               the aims of the ASO (<a href="#reithstoeger2022" target="_blank">Reith and Stöger
+                  2022</a>). However, only two sections in the introduction (“About the text
+               edition and the database” and “Edition guidelines”) contain information about the
+               methods applied during the process. Most of the explanation deals with the database
+               and the biographies of the persons mentioned in the account books.</p>
+<p>Screenshot of book 1, page 11.
+               About the transcription itself, it is said that “[t]he original sequence was
+               retained in the text edition in order to document the structure, character and upkeep
+               of these account books; that means, even crossouts (insofar as those struck words
+               were legible) were reproduced, along with special characters and marginalia.” (<a href="#reithstoeger2020b" target="_blank">Reith and Stöger 2020b</a>) <a href="https://web.archive.org/web/20220721105956/https://www.spaengler-haushaltsbuecher.at/transcription" target="_blank">Transcriptions</a> are displayed next to scans of the transcribed page (see
+                  <a href="#img1" target="_blank">fig. 1</a>). Minor modifications were made
+               to the transcribed text, mostly for the sake of legibility.<span class="note">[The
+                  editors indicate that “[t]he addition of punctuation and completions of shortened
+                  declinations, articles and word endings as well as consonants (indicated in the
+                  original as a double underlining) were made without comment for the sake of better
+                  fluency.” (Introduction).]</span> The original spelling was largely retained. The
+               original spelling of the personal names in the account books has also been preserved
+               in the transcription, but is linked to a uniform spelling of the person’s name in the
+               ‘Persons’ section.</p>
+<p>This example page highlights a few particularities of the transcription.
+               First, strikethrough of the entire page is not added to the transcription, because it
+               is visible on the scan. Second, entries that were crossed out in the account books
+               are transcribed as well, but they are not marked as such in the transcription.
+               Moreover, they are not included in the database to avoid incorrect calculations.
+               Third, abbreviations are written in full, using parentheses to add the abbreviated
+               parts of the word, e.g. annor => annor(um). For some words, the abbreviations were
+               retained, the “Edition guidelines” indicate that “(…) [t]he abbreviations and
+               spellings of Sa (for Summa), pr (for per) and zus (for zusammen, altogether) were
+               retained in the transcription.” It is somewhat regrettable that legitimate concerns
+               about the legibility of the transcription were not extended to the currencies and
+               measures in the text. In the case of currencies, “(…) the standard units x (Kreuzer)
+               and f (Gulden) were substituted by xr and fl to facilitate legibility.” (<a href="#reithstoeger2020b" target="_blank">Reith and Stöger 2020b</a>).
+               Furthermore, as indicated in the section “Remarks about the currency and standard
+               units”, “[p]ayments in ducats were marked with the abbreviation # [hashtag – W.S.]
+               and the converted value (c. 5 fl) was recorded.” (<a href="#reithstoeger2020b" target="_blank">Reith and Stöger 2020b</a>) The sign used for the
+               pound is u (u with strikethrough) (see <a href="https://web.archive.org/web/20220721105854/https://spaengler-haushaltsbuecher.at/introduction" target="_blank">Introduction</a>). This was probably a pragmatic solution to avoid having to
+               deal with the complex issue of the visualization of pre-modern signs for currencies
+               and measures, for which – if at all – Unicode equivalents are only scarcely
+               available, although the pound sign would not have posed any particular problems.</p>
+<p>In contrast with other efforts to improve legibility and computability of
+               the source, abbreviated measures are left untouched. The web application only
+               provides a general description of its metric equivalents in the <a href="https://web.archive.org/web/20220721105854/https://spaengler-haushaltsbuecher.at/introduction" target="_blank">introduction</a>. Since the account books are a source for economic historians
+               with an interest in the history of consumption, this is remarkable. Looking more
+               closely at the weights and measures in the source, some issues become apparent that
+               have an impact beyond the realm of historical metrology. For example, one may wonder
+               why ‘barrel’ (Fass) is not described in the section on weights and measures, although
+               it appears prominently in the list of keywords.</p>
+<p>Selection of query results for ‘barrel‘ as ‘type of service /
+                     occasion / object’.
+               The answer is that, in many cases, the keyword ‘barrel’ was used to annotate
+               wages paid to the cooper (see <a href="#img2" target="_blank">fig. 2</a>). The
+               next section deals with similar (minor) inconsistencies in more detail.</p>
+</section>
+
+<section id="div4">
+  <h3 class="h5">Publication and presentation</h3>
+<p>The user interface is clear and intuitive. The main access methods of
+               the scholarly digital edition correspond to the main sections of the web application.
+               The interface is relatively easy to navigate as soon as the user understands how the
+               different sections are interconnected. The names in the ‘<a href="https://web.archive.org/web/20220721105956/https://www.spaengler-haushaltsbuecher.at/transcription" target="_blank">Transcription</a>’ are linked to a pop-up window with the corresponding
+               information from the ‘<a href="https://web.archive.org/web/20220721110154/https://www.spaengler-haushaltsbuecher.at/persons" target="_blank">Persons</a>’ section. The names in the ‘Persons’ section are linked to the
+                  ‘<a href="https://web.archive.org/web/20220721110039/https://www.spaengler-haushaltsbuecher.at/db" target="_blank">Database</a>’ section. In the ‘Database’ section, book and page info link to
+               the ‘Transcription’ section, and a mouse-click on a person’s name in the
+               ‘Transcription’ makes the corresponding biographical entry from the ‘Persons’ section
+               pop-up on the screen.</p>
+</section>
+
+<section id="div5">
+  <h3 class="h5">Download options</h3>
+<p>The web application does not contain any technical interfaces. Download
+               options have some limitations. It is impossible to download the entire database
+               directly; the number of entries that can be downloaded at once is topped off at
+               5,000. Moreover, in the English version of the website the download option only works
+               when at least some data is entered in the search mask, for example book and page
+               numbers, or dates. With some limitations (not every entry has a date), the date can
+               be used as a means for downloading (almost) the entire database in a few steps. Query
+               results can be downloaded as Excel files that contain all the items in the database
+               display. The Excel sheet also contains an extra field containing the number of the
+               scan and one containing the row number of the entry. The number of the scan is
+               preceded by a letter indicating the book (a = 1, b = 2, c = 3, d = 4). Row numbers
+               continue across the different account books, starting with 1 for the first row of
+               book 1 and ending with 22,951 for the last row of book 4. Since rows without values
+               are not included in the database (see <a href="https://web.archive.org/web/20220721105854/https://spaengler-haushaltsbuecher.at/introduction" target="_blank">Introduction</a>), the Excel sheet contains 21,146 rows. Scans can be
+               downloaded one by one from the web application, but the quality is not high (96 x 96
+               dpi). No information is given about the rights and restrictions for the reuse of text
+               and images downloaded from the website.</p>
+</section>
+
+<section id="div6">
+  <h3 class="h5">Conclusions</h3>
+<p>The ASO follow a digital paradigm and can be considered a scholarly
+               digital edition. The ASO combine a diplomatic with a database edition to improve the
+               analysis of the source from the perspective of the history of consumption. The
+               editorial guidelines are rather concise, but offer enough information about the
+               transcription of the account books. More in-depth information about the structure and
+               functions of the database, on the other hand, would have been helpful.</p>
+<p>A major strength of the ASO is its clear and intuitive structure that
+               makes it easy to explore the source from a variety of perspectives. Despite its
+               inconsistencies, the ‘Persons’ section, which provides additional biographical
+               information about many people in the account books, is a major asset of the work. The
+               way in which the transcription and database sections of the web application are
+               connected, has its limitations, but the merits clearly prevail. The ASO provide an
+               excellent example of how relatively straightforward digital techniques, such as the
+               use of hyperlinks, are leveraged to the benefit of a synergistic digital edition.
+               This method could be useful for other non-narrative sources besides the household
+               account books. Therefore, it is unfortunate that the ASO remain silent about the
+               technical side of the project.</p>
+<p>Since its editors embed their work primarily in German-language
+               historiography, there is much scope for future research with the ASO. For example, it
+               would be interesting to compare the format and contents of the ASO with examples of
+               household books in, for example, Great Britain. At first sight, it seems that
+               eighteenth-century household books are quite common in British historiography.
+               Researchers have used them to discuss consumer behavior, but also to examine changes
+               in fashion in the eighteenth century (<a href="#garry2016" target="_blank">Garry
+                  2016</a>), the role of second-hand markets in private households, and issues of
+               masculinity and the image of women (<a href="#vickery2006" target="_blank">Vickery 2006</a>; <a href="#harvey2012" target="_blank">Harvey 2012</a>).
+               The ASO open doors for comparative analyses on these and related topics. Given the
+               obvious value of the source, its methods and web application, it would be recommended
+               for the editors to get rid of the minor inconsistencies in the application,
+               especially in the ‘Persons’ section, and to publish information about the
+               technologies used for preparing and publishing this fascinating digital edition.</p>
+</section>
+
+<figure id="img1" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-1.png" alt="Screenshot of book 1, page 11." class="img-fluid"/>
+  <figcaption>Screenshot of book 1, page 11.</figcaption>
+</figure>
+<figure id="img2" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-2.png" alt="Selection of query results for ‘barrel‘ as ‘type of service /
+                     occasion / object’." class="img-fluid"/>
+  <figcaption>Selection of query results for ‘barrel‘ as ‘type of service /
+                     occasion / object’.</figcaption>
+</figure>
+<figure id="img3" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-3.png" alt="List numbers entered into the month field in book 4, page
+                        172." class="img-fluid"/>
+  <figcaption>List numbers entered into the month field in book 4, page
+                        172.</figcaption>
+</figure>
+<figure id="img4" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-4.png" alt="Screenshot of book 1, page 47." class="img-fluid"/>
+  <figcaption>Screenshot of book 1, page 47.</figcaption>
+</figure>
+<figure id="img5" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-5.png" alt="Query results for ‘luxury food, almond’ as ‘type of service
+                        / occasion / object’." class="img-fluid"/>
+  <figcaption>Query results for ‘luxury food, almond’ as ‘type of service
+                        / occasion / object’.</figcaption>
+</figure>
+<figure id="img6" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-6.png" alt="Query results for ‘luxury food, sugar’ as ‘type of service
+                        / occasion / object’." class="img-fluid"/>
+  <figcaption>Query results for ‘luxury food, sugar’ as ‘type of service
+                        / occasion / object’.</figcaption>
+</figure>
+<figure id="img7" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-7.png" alt="Query result for ‘Schuster, Maria Anna’, a person with a
+                        biographical entry in the ‘Persons’ section, but no corresponding entries in
+                        the database." class="img-fluid"/>
+  <figcaption>Query result for ‘Schuster, Maria Anna’, a person with a
+                        biographical entry in the ‘Persons’ section, but no corresponding entries in
+                        the database.</figcaption>
+</figure>
+<figure id="img8" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-8.png" alt="Query result for ‘Azwanger, Raimund Felix’, a person with
+                        biographical entry in the ‘Persons’ section, but no corresponding entries in
+                        the database." class="img-fluid"/>
+  <figcaption>Query result for ‘Azwanger, Raimund Felix’, a person with
+                        biographical entry in the ‘Persons’ section, but no corresponding entries in
+                        the database.</figcaption>
+</figure>
+<figure id="img9" class="mb-4">
+  <img src="../../data/issue18/spaengler/pictures/picture-9.png" alt="Query result for ‘Atzwanger, Raimund Felix’, a person with
+                        inconsistent metadata in the database." class="img-fluid"/>
+  <figcaption>Query result for ‘Atzwanger, Raimund Felix’, a person with
+                        inconsistent metadata in the database.</figcaption>
+</figure>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-4">
+        <section class="mb-4">
+          <h4 class="h6">Meta</h4>
+          <ul class="list-unstyled">
+            <li><strong>Published:</strong> September 2023</li>
+            <li><strong>Publisher:</strong> Institut für Dokumentologie und Editorik e.V.</li>
+          </ul>
+        </section>
+
+        <section class="mb-4">
+          <h4 class="h6">Tags</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary">18th century</span>
+            <span class="badge bg-secondary">Account books</span>
+            <span class="badge bg-secondary">Digital edition</span>
+          </div>
+        </section>
+
+        <section>
+          <h4 class="h6">TOC</h4>
+          <ul class="list-unstyled">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#div1">Introduction</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 RIDE Journal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
