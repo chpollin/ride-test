@@ -1,0 +1,121 @@
+/* style.css */
+
+/* Basic resets or preferences */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Headings */
+h1, .h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2, .h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3, .h3 {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Notes (footnotes) */
+.note {
+  color: #888;
+  font-style: italic;
+  padding: 0 0.25rem;
+}
+
+/* Figures */
+figure {
+  display: block;
+  margin: 2rem 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+figure figcaption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+/* Additional spacing classes if needed */
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+/* Navbar or header custom overrides */
+.navbar-nav .nav-link {
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-brand {
+  font-weight: 600;
+}
+
+/* For the dropdowns */
+.navbar .dropdown-menu {
+  font-size: 0.95rem;
+}
+
+/* Links */
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #003d82;
+}
+
+/* Footer (if used) */
+footer {
+  background-color: #212529; /* dark gray/black */
+}
+footer p {
+  color: #ccc;
+  margin: 0;
+}
+
+/* Make sure .img-fluid works well for figures */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Misc. or optional custom classes */
+aside .badge {
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+aside .badge:hover {
+  background-color: #343a40;
+  color: #fff;
+}

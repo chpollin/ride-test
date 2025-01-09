@@ -9,91 +9,141 @@ def main():
     web_folder = "web"
 
     # Ensure the "web" folder exists
-    if not os.path.exists(web_folder):
-        os.makedirs(web_folder)
+    os.makedirs(web_folder, exist_ok=True)
 
-    # We'll store a mapping from issueName -> list of (title, filename)
-    # so that we can create a dropdown with all subpages
-    issues_index = {}
+    # 1) Build our static "About" pages (e.g., Editorial, Publishing Policy, etc.)
+    static_pages = {
+        "Editorial": "editorial.html",
+        "Publishing Policy": "publishing-policy.html",
+        "Ethical Code": "ethical-code.html",
+        "Team": "team.html",
+        "Peer Reviewers": "peer-reviewers.html",
+        "Dissemination and Discussion": "dissemination-and-discussion.html",
+        "Contact and Newsletter": "contact-and-newsletter.html"
+    }
+    build_static_pages(web_folder, static_pages)
 
-    # -------------------------------------------------------------------------
-    # 1) Find directories named "issueXX" in data/
-    # -------------------------------------------------------------------------
-    for item in os.listdir(data_folder):
-        issue_dir_path = os.path.join(data_folder, item)
-        if not os.path.isdir(issue_dir_path):
+    # 2) Collect sub-reviews from each "issueXX" directory
+    issue_pages = {}  # { "issue17": [ (title, link, abstractHTML), ... ], ... }
+
+    for issue_dir in os.listdir(data_folder):
+        issue_path = os.path.join(data_folder, issue_dir)
+        if not os.path.isdir(issue_path):
             continue
-        if not item.startswith("issue"):  
-            # Skip directories that are not named "issueXX"
+        if not issue_dir.startswith("issue"):
+            # Skip any folder not named "issueXX"
             continue
-        
-        # We'll build a corresponding output folder in web/issueXX
-        output_issue_folder = os.path.join(web_folder, item)
-        if not os.path.exists(output_issue_folder):
-            os.makedirs(output_issue_folder)
-        
-        # This issue's name is something like "issue18"
-        issue_name = item
-        issues_index[issue_name] = []
 
-        # ---------------------------------------------------------------------
-        # 2) Within each issue directory, parse subfolders
-        # ---------------------------------------------------------------------
-        for subfolder in os.listdir(issue_dir_path):
-            subfolder_path = os.path.join(issue_dir_path, subfolder)
+        issue_name = issue_dir
+        issue_pages[issue_name] = []
+
+        # Create subfolder in web/ for the individual pages
+        issue_out_folder = os.path.join(web_folder, issue_name)
+        os.makedirs(issue_out_folder, exist_ok=True)
+
+        # Scan subfolders in this issue
+        for subfolder in os.listdir(issue_path):
+            subfolder_path = os.path.join(issue_path, subfolder)
             if not os.path.isdir(subfolder_path):
                 continue
 
-            # We expect a TEI file named <subfolder>-tei.xml
-            tei_filename = f"{subfolder}-tei.xml"
-            tei_file_path = os.path.join(subfolder_path, tei_filename)
+            # Expect <subfolder>-tei.xml
+            tei_file = f"{subfolder}-tei.xml"
+            tei_path = os.path.join(subfolder_path, tei_file)
+            if not os.path.isfile(tei_path):
+                continue
 
-            if os.path.isfile(tei_file_path):
-                # Parse & transform
-                html_string = transform_tei_to_html(
-                    tei_file_path, 
-                    issue_name, 
-                    subfolder
-                )
-                # Save as web/issueXX/<subfolder>.html
-                output_html_path = os.path.join(output_issue_folder, f"{subfolder}.html")
-                with open(output_html_path, "w", encoding="utf-8") as outf:
-                    outf.write(html_string)
+            # Parse TEI and build HTML
+            doc_title, doc_abstract, html_output = transform_tei_to_html(tei_path, issue_name, subfolder)
 
-                # Read out the doc <title> from the generated HTML
-                doc_title = get_title_from_html(html_string) or subfolder
+            # Write to web/issueXX/<subfolder>.html
+            output_html_path = os.path.join(issue_out_folder, f"{subfolder}.html")
+            with open(output_html_path, "w", encoding="utf-8") as f:
+                f.write(html_output)
 
-                # Store for building our index
-                # The relative path from web/index.html to web/issueXX/<subfolder>.html 
-                # is just f"{issue_name}/{subfolder}.html"
-                rel_path = f"{issue_name}/{subfolder}.html"
-                issues_index[issue_name].append((doc_title, rel_path))
+            # Remember for the summary page
+            rel_link = f"{issue_name}/{subfolder}.html"
+            issue_pages[issue_name].append((doc_title, rel_link, doc_abstract))
 
-                print(f"Created: {output_html_path}")
-    
-    # -------------------------------------------------------------------------
-    # 3) Create a global index.html in "web/" with a top nav and an Issues dropdown
-    # -------------------------------------------------------------------------
-    index_html = build_index_html(issues_index)
+    # 3) Build a summary page for each issue (e.g. issue17.html)
+    for issue_name, pages_info in issue_pages.items():
+        issue_html = build_issue_page(issue_name, pages_info)
+        issue_main_page = os.path.join(web_folder, f"{issue_name}.html")
+        with open(issue_main_page, "w", encoding="utf-8") as f:
+            f.write(issue_html)
+
+    # 4) Build the global index with top nav: About dropdown, Issues dropdown, etc.
+    index_html = build_global_index(issue_pages, static_pages)
     index_path = os.path.join(web_folder, "index.html")
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(index_html)
-    print(f"Created index: {index_path}")
+
+    print("Done. Created all pages in 'web' folder.")
 
 
-def transform_tei_to_html(tei_file_path, issue_name, subfolder_name):
+def build_static_pages(web_folder, static_pages):
     """
-    Parse the TEI file and return a single string of the HTML
-    with references to images like ../../data/issueXX/subfolder/pictures/*.png
+    Create placeholder static "About" pages in web/ with minimal content.
     """
-    tree = etree.parse(tei_file_path)
+    placeholder_texts = {
+        "Editorial": "This is the editorial page. Replace with real content.",
+        "Publishing Policy": "Here you can describe your publishing policy in detail.",
+        "Ethical Code": "Your journal’s ethical code goes here.",
+        "Team": "Introduce your editorial or development team.",
+        "Peer Reviewers": "List or thank your peer reviewers here.",
+        "Dissemination and Discussion": "Place your outreach or discussion approach here.",
+        "Contact and Newsletter": "Add contact details and newsletter info here."
+    }
+
+    for page_name, filename in static_pages.items():
+        filepath = os.path.join(web_folder, filename)
+        # Minimal HTML structure
+        content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{page_name}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="logo.png" alt="RIDE Logo" class="me-3" style="width:50px;height:auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container my-4">
+    <h2>{page_name}</h2>
+    <p>{placeholder_texts.get(page_name, "Placeholder Content")}</p>
+  </div>
+</body>
+</html>"""
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(content)
+
+
+def transform_tei_to_html(tei_path, issue_name, subfolder):
+    """
+    Parse a TEI file, extracting doc title & abstract, returning (doc_title, doc_abstract, html_string).
+    Images are referenced as ../../data/issueXX/<subfolder>/pictures/<image>.
+    """
+    tree = etree.parse(tei_path)
     root = tree.getroot()
     ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
 
-    # 1) Get doc title, publisher, date, idno from teiHeader
-    title_elt = root.xpath('.//tei:teiHeader//tei:titleStmt/tei:title', namespaces=ns)
-    doc_title = title_elt[0].text.strip() if title_elt else "Untitled Document"
+    # doc_title
+    title_node = root.xpath('.//tei:teiHeader//tei:titleStmt/tei:title', namespaces=ns)
+    doc_title = title_node[0].text.strip() if title_node else "Untitled Document"
 
+    # metadata
     pub_el = root.xpath('.//tei:teiHeader//tei:fileDesc//tei:publicationStmt/tei:publisher', namespaces=ns)
     publisher = pub_el[0].text.strip() if pub_el else ""
 
@@ -103,21 +153,20 @@ def transform_tei_to_html(tei_file_path, issue_name, subfolder_name):
     idno_el = root.xpath('.//tei:teiHeader//tei:fileDesc//tei:publicationStmt/tei:idno', namespaces=ns)
     idno = idno_el[0].text.strip() if idno_el else ""
 
-    # 2) front -> abstract
-    front_abstract = ""
+    # abstract
+    doc_abstract = ""
     front_divs = root.xpath('.//tei:text//tei:front/tei:div', namespaces=ns)
     for fdiv in front_divs:
         if fdiv.get("type") == "abstract":
             p_nodes = fdiv.xpath('.//tei:p', namespaces=ns)
             for p in p_nodes:
-                txt = p.xpath('string(.)').strip()
-                if txt:
-                    front_abstract += f"<p>{txt}</p>\n"
+                text = p.xpath('string(.)').strip()
+                if text:
+                    doc_abstract += f"<p>{text}</p>\n"
 
-    # 3) body -> div, head, p
+    # body -> divs
     body_html = ""
     body_divs = root.xpath('.//tei:text//tei:body/tei:div', namespaces=ns)
-
     for div in body_divs:
         div_id = div.get('{http://www.w3.org/XML/1998/namespace}id', '')
         head_nodes = div.xpath('./tei:head', namespaces=ns)
@@ -125,78 +174,60 @@ def transform_tei_to_html(tei_file_path, issue_name, subfolder_name):
 
         body_html += f'<section id="{div_id}">\n'
         body_html += f'  <h3 class="h5">{section_title}</h3>\n'
-
         p_nodes = div.xpath('./tei:p', namespaces=ns)
         for pnode in p_nodes:
-            para_html = process_paragraph(pnode, ns)
-            body_html += para_html
-
+            para_content = process_paragraph(pnode, ns)
+            body_html += para_content
         body_html += "</section>\n\n"
 
-    # 4) figures
-    # We'll do a simple pass for all <figure> in <body>
+    # figures
     figure_nodes = root.xpath('.//tei:text//tei:body//tei:figure', namespaces=ns)
     figure_html = ""
-    for figure in figure_nodes:
-        fig_id = figure.get('{http://www.w3.org/XML/1998/namespace}id', '')
-        graphic_el = figure.xpath('.//tei:graphic', namespaces=ns)
-        legend_el = figure.xpath('./tei:head[@type="legend"]', namespaces=ns)
-        fig_legend = legend_el[0].text.strip() if (legend_el and legend_el[0].text) else "Figure"
-
+    for fig in figure_nodes:
+        fig_id = fig.get('{http://www.w3.org/XML/1998/namespace}id', '')
+        graphic_el = fig.xpath('.//tei:graphic', namespaces=ns)
+        legend_el = fig.xpath('./tei:head[@type="legend"]', namespaces=ns)
+        legend = legend_el[0].text.strip() if (legend_el and legend_el[0].text) else "Figure"
         if graphic_el:
-            image_url = graphic_el[0].get('url', '')
-            # We want a relative path like ../../data/issueXX/subfolder/pictures/xxx
-            # Extract the base name of the image
-            image_name = os.path.basename(image_url)
-            rel_path = f"../../data/{issue_name}/{subfolder_name}/pictures/{image_name}"
-
+            img_url = graphic_el[0].get('url', '')
+            img_name = os.path.basename(img_url)
+            rel_img_path = f"../../data/{issue_name}/{subfolder}/pictures/{img_name}"
             figure_html += (
                 f'<figure id="{fig_id}" class="mb-4">\n'
-                f'  <img src="{rel_path}" alt="{fig_legend}" class="img-fluid"/>\n'
-                f'  <figcaption>{fig_legend}</figcaption>\n'
+                f'  <img src="{rel_img_path}" alt="{legend}" class="img-fluid"/>\n'
+                f'  <figcaption>{legend}</figcaption>\n'
                 f'</figure>\n'
             )
 
     body_html += figure_html
 
-    # 5) Build final HTML
-    html_out = f"""<!DOCTYPE html>
+    # final HTML
+    html_string = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{doc_title}</title>
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- style.css (pre-existing, not generated here) -->
   <link href="../style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Header Section -->
   <header class="bg-light py-3 border-bottom">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center">
-        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width: 50px; height: auto;">
+        <img src="../logo.png" alt="RIDE Logo" class="me-3" style="width:50px;height:auto;">
         <h1 class="h4 mb-0">RIDE</h1>
       </div>
       <nav>
         <ul class="nav">
-          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Issues</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <!-- Main Content -->
   <div class="container my-4">
     <div class="row">
-      <!-- Main Article Column -->
       <div class="col-md-8">
-        <!-- Title Section -->
         <section class="mb-4">
           <h2 class="h2">{doc_title}</h2>
           <p class="text-muted">
@@ -205,17 +236,13 @@ def transform_tei_to_html(tei_file_path, issue_name, subfolder_name):
           <hr>
         </section>
 
-        <!-- Abstract Section -->
         <section id="abstract" class="mb-4">
           <h3 class="h5">Abstract</h3>
-          {front_abstract}
+          {doc_abstract}
         </section>
 
-        <!-- Body Content -->
         {body_html}
       </div>
-
-      <!-- Sidebar -->
       <aside class="col-md-4">
         <section class="mb-4">
           <h4 class="h6">Meta</h4>
@@ -228,171 +255,210 @@ def transform_tei_to_html(tei_file_path, issue_name, subfolder_name):
         <section class="mb-4">
           <h4 class="h6">Tags</h4>
           <div class="d-flex flex-wrap gap-2">
-            <span class="badge bg-secondary">18th century</span>
-            <span class="badge bg-secondary">Account books</span>
-            <span class="badge bg-secondary">Digital edition</span>
+            <span class="badge bg-secondary">Digital Edition</span>
+            <span class="badge bg-secondary">TEI</span>
           </div>
-        </section>
-
-        <section>
-          <h4 class="h6">TOC</h4>
-          <ul class="list-unstyled">
-            <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#{body_divs[0].get('{http://www.w3.org/XML/1998/namespace}id') if body_divs else ''}">Introduction</a></li>
-          </ul>
         </section>
       </aside>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-light py-3 mt-5">
-    <div class="container text-center">
-      <p>&copy; 2023 RIDE Journal. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 """
-    return html_out
+    return doc_title, doc_abstract, html_string
 
 
 def process_paragraph(pnode, ns):
     """
-    Convert a TEI <p> node into HTML, handling child elements (<ref>, <note>, <emph>, etc.)
+    Convert a TEI <p> node into HTML <p>, handling child elements like <ref>, <note>, <emph>.
     """
-    para_content = ""
-    if pnode.text:
-        para_content += pnode.text
+    content = pnode.text or ""
 
     for child in pnode:
         tag = etree.QName(child)
         if tag.localname == 'ref':
-            url = child.get('target', '#')
             link_text = (child.text or '').strip()
-            para_content += f'<a href="{url}" target="_blank">{link_text}</a>'
+            url = child.get('target', '#')
+            content += f'<a href="{url}" target="_blank">{link_text}</a>'
             if child.tail:
-                para_content += child.tail
+                content += child.tail
         elif tag.localname == 'note':
             note_text = child.xpath('string(.)').strip()
-            para_content += f'<span class="note">[{note_text}]</span>'
+            content += f'<span class="note">[{note_text}]</span>'
             if child.tail:
-                para_content += child.tail
+                content += child.tail
         elif tag.localname == 'emph':
             em_text = child.xpath('string(.)').strip()
-            para_content += f'<em>{em_text}</em>'
+            content += f'<em>{em_text}</em>'
             if child.tail:
-                para_content += child.tail
+                content += child.tail
         else:
-            # Default: just flatten text
             text_in_child = child.xpath('string(.)')
-            para_content += text_in_child
+            content += text_in_child
             if child.tail:
-                para_content += child.tail
+                content += child.tail
 
-    return f"<p>{para_content.strip()}</p>\n"
+    return f"<p>{content.strip()}</p>\n"
 
 
-def get_title_from_html(html_text):
+def build_issue_page(issue_name, pages_info):
     """
-    Extract the <title> from the generated HTML.
+    Build a single HTML page for an entire "collection" (issueXX.html),
+    listing each sub-review with title, abstract, link to subpage.
     """
-    start_tag = "<title>"
-    end_tag = "</title>"
-    sidx = html_text.find(start_tag)
-    eidx = html_text.find(end_tag)
-    if sidx != -1 and eidx != -1 and eidx > sidx:
-        sidx += len(start_tag)
-        return html_text[sidx:eidx].strip()
-    return None
-
-
-def build_index_html(issues_index):
-    """
-    Creates one index.html with a top nav bar that has an Issues dropdown.
-    Each issue links to the subpages that were created.
-    issues_index is a dict:
-      {
-        'issue17': [(title1, 'issue17/page1.html'), (title2, 'issue17/page2.html')],
-        'issue18': [...],
-        ...
-      }
-    """
-    # Build the drop-down <li> for each issue
-    issues_nav_html = ""
-    for issue_name, pages in issues_index.items():
-        # We'll create a dropdown item for each page
-        # If you want a sub-dropdown, you can do that, but let's keep it simple:
-        items = ""
-        for (title, rel_path) in pages:
-            items += f'<li><a class="dropdown-item" href="{rel_path}">{title}</a></li>\n'
-
-        if not items:
-            # If no pages, skip
-            continue
-
-        issues_nav_html += f"""
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="{issue_name}Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {issue_name.capitalize()}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="{issue_name}Dropdown">
-            {items}
-          </ul>
-        </li>
+    items_html = ""
+    for title, link, abstract in pages_info:
+        items_html += f"""
+        <div class="mb-5">
+          <h3><a href="{link}">{title}</a></h3>
+          <div>{abstract}</div>
+        </div>
         """
 
-    # Create the main content for the index
-    body_content = ""
-    for issue_name, pages in issues_index.items():
-        if len(pages) == 0:
-            continue
-        body_content += f"<h2>{issue_name.capitalize()}</h2>\n<ul>\n"
-        for (title, rel_path) in pages:
-            body_content += f'  <li><a href="{rel_path}">{title}</a></li>\n'
-        body_content += "</ul>\n\n"
-
-    # Full index
-    index_html = f"""<!DOCTYPE html>
+    page_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RIDE - All Issues</title>
+  <title>{issue_name.capitalize()}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Top Nav with Issues dropdown -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <header class="bg-light py-3 border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="logo.png" alt="RIDE Logo" class="me-3" style="width:50px;height:auto;">
+        <h1 class="h4 mb-0">RIDE</h1>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container my-4">
+    <h2>{issue_name.capitalize()}</h2>
+    <p>This page provides an overview of all reviews in {issue_name}.</p>
+    {items_html}
+  </div>
+</body>
+</html>
+"""
+    return page_html
+
+
+def build_global_index(issue_pages, static_pages):
+    """
+    Build index.html with a top nav bar:
+      - About dropdown -> each static page
+      - Issues dropdown -> each issue page
+      - Data, Reviewers, Reviewing Criteria placeholders
+    """
+    # "About" dropdown
+    about_dropdown = ""
+    for name, filename in static_pages.items():
+        about_dropdown += f'<li><a class="dropdown-item" href="{filename}">{name}</a></li>\n'
+
+    # "Issues" dropdown
+    issues_dropdown = ""
+    for issue_name in sorted(issue_pages.keys()):
+        issues_dropdown += f'<li><a class="dropdown-item" href="{issue_name}.html">{issue_name.capitalize()}</a></li>\n'
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RIDE - Index</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">RIDE - Index</a>
+      <a class="navbar-brand" href="#">RIDE</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          {issues_nav_html}
+        <ul class="navbar-nav me-auto">
+          <!-- About dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" 
+               data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              {about_dropdown}
+            </ul>
+          </li>
+          <!-- Issues dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="issuesDropdown" role="button" 
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Issues
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="issuesDropdown">
+              {issues_dropdown}
+            </ul>
+          </li>
+          <!-- Additional placeholders -->
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reviewing Criteria</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Body -->
   <div class="container my-5">
-    <h1>RIDE - All Issues</h1>
-    <p>This index lists all available reviews.</p>
-    {body_content}
+    <h1>RIDE - Home</h1>
+    <p>Welcome to RIDE's main index page. Use the top navigation to explore issues or learn more in the About menu.</p>
   </div>
 
+  <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 """
-    return index_html
+    return html
+
+
+def process_paragraph(pnode, ns):
+    """
+    Convert a TEI <p> node into HTML <p>, handling <ref>, <note>, <emph>, etc.
+    (Helper included above, but repeated here in case you want it in a separate section.)
+    """
+    # (If you are re-using the top-level one, remove this or unify them.)
+    content = pnode.text or ""
+
+    for child in pnode:
+        tag = etree.QName(child)
+        if tag.localname == 'ref':
+            link_text = (child.text or '').strip()
+            url = child.get('target', '#')
+            content += f'<a href="{url}" target="_blank">{link_text}</a>'
+            if child.tail:
+                content += child.tail
+        elif tag.localname == 'note':
+            note_text = child.xpath('string(.)').strip()
+            content += f'<span class="note">[{note_text}]</span>'
+            if child.tail:
+                content += child.tail
+        elif tag.localname == 'emph':
+            em_text = child.xpath('string(.)').strip()
+            content += f'<em>{em_text}</em>'
+            if child.tail:
+                content += child.tail
+        else:
+            text_in_child = child.xpath('string(.)')
+            content += text_in_child
+            if child.tail:
+                content += child.tail
+
+    return f"<p>{content.strip()}</p>\n"
 
 
 if __name__ == "__main__":
